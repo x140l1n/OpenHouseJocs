@@ -68,14 +68,16 @@
             <img src="../../media/landingPage/innovacio.png" class="card-img-top" alt="Innovació.">
             <div class="card-body">
               <h5 class="card-title">Innovació</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+              <p class="card-text">Innovació pedagògica al Centre d'Estudis Politècnics.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
     
-    
-
+    <!--IMATGE JOC-->
+    <div>
+      <img src="../../media/landingPage/jugar.gif" class="img-fluid" alt="Prémer per jugar">
+    </div>
 </body>
 </html>
