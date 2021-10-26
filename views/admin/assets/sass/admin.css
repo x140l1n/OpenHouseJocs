@@ -11498,7 +11498,13 @@ fieldset:disabled .btn {
   }
 }
 
-.cards {
-  padding: 50px;
+.login-background {
+  background-image: url("../../../../media/admin/background.jpg");
+  background-size: cover;
 }
-/*# sourceMappingURL=landingPage.css.map */
+
+.login-background:before {
+  background-color: #0000;
+  opacity: 0.75;
+}
+/*# sourceMappingURL=admin.css.map */
