@@ -11497,4 +11497,8 @@ fieldset:disabled .btn {
     display: none !important;
   }
 }
+
+.cards {
+  padding: 50px;
+}
 /*# sourceMappingURL=landingPage.css.map */
