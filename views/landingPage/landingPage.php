@@ -45,29 +45,29 @@
     <!--CARDS INFORMATIVAS-->
     <div class="cards">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-        <div class="col">
+        <div class="col d-flex align-items-stretch">
           <div class="card">
-            <img src="../../media/landingPage/quiSom.png" class="card-img-top" alt="...">
+            <img src="../../media/landingPage/quiSom.png" class="card-img-top" alt="Representació de l'apartat Qui som.">
             <div class="card-body">
               <h5 class="card-title">Quim som?</h5>
               <p class="card-text">Que es el centre d'estudis politecnics de Barcelona?</p>
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col d-flex align-items-stretch">
           <div class="card">
-            <img src="../../media/landingPage/frase.png" class="card-img-top" alt="...">
+            <img src="../../media/landingPage/frase.png" class="card-img-top" alt="Representació de la metodologia del centre FRASE.">
             <div class="card-body">
               <h5 class="card-title">Projecte educatiu del centre</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">T'ensenyem el nostre model d'ensenyament - aprenentatge.</p>
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col d-flex align-items-stretch">
           <div class="card">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="../../media/landingPage/innovacio.png" class="card-img-top" alt="Innovació.">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Innovació</h5>
               <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
             </div>
           </div>
