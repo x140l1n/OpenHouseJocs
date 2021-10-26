@@ -45,7 +45,7 @@
               </ul>
             </li>
             <div class="form-check form-switch pt-2 pl-2">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+              <input class="form-check-input" name="dkmode" type="checkbox" id="flexSwitchCheckChecked">
               <label class="form-check-label" for="flexSwitchCheckChecked">mode</label>
             </div>
           </ul>
