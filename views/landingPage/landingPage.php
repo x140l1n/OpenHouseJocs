@@ -10,6 +10,11 @@
     <title>OpenHouseJocs</title>
 </head>
 <body>
+    <!--NAVBAR-->
+    <?php
+      include("../../components/navbar/navbar.php");
+    ?>
+
     <!--CARROUSEL DE IMAGENES-->
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -45,7 +50,7 @@
           <div class="card">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Quim som?</h5>
               <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
           </div>
