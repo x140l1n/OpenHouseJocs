@@ -12,7 +12,7 @@
     <title>OpenHouseJocs</title>
 </head>
 <body>
-  <?php
+  <?php //Inclueixo la barra de navegació que la hem fet en un arxiu a part (és un global), ja que la utilitzarem per altres pagines i així no hem de duplicar codi.
     include __DIR__. '../../../components/navbar/navbar.php';
   ?>
     <!--CARROUSEL DE IMAGENES-->
