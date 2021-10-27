@@ -79,5 +79,10 @@
     <div>
       <img src="../../media/landingPage/jugar.gif" class="img-fluid" alt="Prémer per jugar">
     </div>
+
+    <!--FOOTER-->
+    <?php
+    include __DIR__. '../../../components/footer/footer.php';
+    ?>
 </body>
 </html>
