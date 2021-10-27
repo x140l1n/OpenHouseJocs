@@ -8,6 +8,7 @@
     <script defer src="../../UI/bootstrap-5.0.2/dist/js/bootstrap.js"></script>
     <link rel="shortcut icon" href="../../media/iconoPestanya.png" />
     <link rel="stylesheet" href="../../components/navbar/navbar.css">
+    <link rel="stylesheet" href="../../components/footer/footer.css">
     <title>OpenHouseJocs</title>
 </head>
 <body>
