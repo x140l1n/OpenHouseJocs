@@ -7,7 +7,7 @@
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #3b5998;"
-        href="#!"
+        href="https://es-es.facebook.com/politecnics/"
         role="button"
         ><i class="fab fa-facebook-f"></i
       ></a>
@@ -16,25 +16,25 @@
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #55acee;"
-        href="#!"
+        href="https://twitter.com/CE_Politecnics"
         role="button"
         ><i class="fab fa-twitter"></i
       ></a>
 
-      <!-- Google -->
+      <!-- Youtube -->
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #dd4b39;"
-        href="#!"
+        href="https://www.youtube.com/user/CEPbcn"
         role="button"
-        ><i class="fab fa-google"></i
+        ><i class="fa-brands fa-youtube"></i
       ></a>
 
       <!-- Instagram -->
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #ac2bac;"
-        href="#!"
+        href="https://www.instagram.com/ce_politecnics/"
         role="button"
         ><i class="fab fa-instagram"></i
       ></a>
@@ -43,7 +43,7 @@
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #0082ca;"
-        href="#!"
+        href="https://www.linkedin.com/school/politecnics/"
         role="button"
         ><i class="fab fa-linkedin-in"></i
       ></a>
