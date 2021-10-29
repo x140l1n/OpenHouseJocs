@@ -8,6 +8,7 @@
         class="btn btn-primary btn-floating m-1"
         style="background-color: #3b5998;"
         href="https://es-es.facebook.com/politecnics/"
+        target="_blank"
         role="button"
         ><i class="fab fa-facebook-f"></i
       ></a>
@@ -17,6 +18,7 @@
         class="btn btn-primary btn-floating m-1"
         style="background-color: #55acee;"
         href="https://twitter.com/CE_Politecnics"
+        target="_blank"
         role="button"
         ><i class="fab fa-twitter"></i
       ></a>
@@ -26,14 +28,16 @@
         class="btn btn-primary btn-floating m-1"
         style="background-color: #dd4b39;"
         href="https://www.youtube.com/user/CEPbcn"
+        target="_blank"
         role="button"
-        ><i class="fa-brands fa-youtube"></i
+        ><i class="fab fa-youtube"></i
       ></a>
 
       <!-- Instagram -->
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #ac2bac;"
+        target="_blank"
         href="https://www.instagram.com/ce_politecnics/"
         role="button"
         ><i class="fab fa-instagram"></i
@@ -44,26 +48,18 @@
         class="btn btn-primary btn-floating m-1"
         style="background-color: #0082ca;"
         href="https://www.linkedin.com/school/politecnics/"
+        target="_blank"
         role="button"
         ><i class="fab fa-linkedin-in"></i
       ></a>
-      <!-- Github -->
-      <a
-        class="btn btn-primary btn-floating m-1"
-        style="background-color: #333333;"
-        href="#!"
-        role="button"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
     <!-- Section: Social media -->
   </div>
   <!-- Grid container -->
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright:
-    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    © 2021 Copyright:
+    <a class="text-white" href="https://politecnics.barcelona" target="_blank">Politècnics Barcelona</a>
   </div>
   <!-- Copyright -->
 </footer>
