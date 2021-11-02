@@ -1,0 +1,32 @@
+@import "../../UI/bootstrap-5.0.2/scss/bootstrap.scss";
+
+.navbar {
+    background-color: #d6d6d6 !important;
+    overflow: visible;
+  }
+
+  .bg-light {
+    background-color: black;
+}
+
+  .form-check-input:checked {
+      .navbar {
+        background-color: black !important; 
+      }
+    
+} 
+
+.collapse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.show {
+    .navbar-nav {
+        display: flex;
+        flex-grow: inherit;
+    }
+    .adminIcon::after {
+        content:"Administrador";
+    }
+}
