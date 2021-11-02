@@ -9,7 +9,6 @@
             "name": "Launch Chrome",
             "request": "launch",
             "type": "pwa-chrome",
-
             "url": "http://localhost:8080/OpenHouseJocs/views/landingPage/index.php",
             "webRoot": "${workspaceFolder}"
         }
