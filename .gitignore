@@ -1,3 +1,4 @@
 #Except this file
-/Users/cristinemarquez/Desktop/OpenHouseJocs/.vscode
 !.gitignore
+
+.vscode

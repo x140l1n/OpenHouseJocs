@@ -7,6 +7,8 @@
     <title>OpenHouseJocs</title>
 </head>
 <body>
-  HELLO WORLD
+  <?php
+    include "views/landingPage/landingPage.php";
+  ?>
 </body>
 </html>
