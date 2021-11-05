@@ -1,15 +1,33 @@
 @charset "UTF-8";
 /***** SWITCH **** */
 /***** End SWITCH **** */
-/***** OTHERS **** */
-/***** End OTHERS **** */
+/***** VARIABLES OTHERS **** */
+/***** End VARIABLES OTHERS **** */
+/***** VARIABLES SIDEBAR **** */
+/***** End VARIABLES SIDEBAR **** */
 /***** VARIABLES INPUT **** */
 /***** End VARIABLES INPUT **** */
-/***** SWITCH **** */
-/***** End SWITCH **** */
+/***** VARIABLES SWITCH **** */
+/***** End VARIABLES SWITCH **** */
 /***** OTHERS **** */
 body {
   background-color: #E4ECEF; }
+
+.container-wrapper {
+  padding: 0px;
+  padding-top: 66px; }
+
+.logo-cep {
+  width: 50px;
+  height: 40px;
+  margin-right: 10px; }
+  .logo-cep > div {
+    height: 10px;
+    margin-bottom: 3px;
+    border-radius: 5px; }
+
+.bg-purple {
+  background-color: #764A93; }
 
 .login-background {
   position: relative;
@@ -110,5 +128,20 @@ input.form-control {
   cursor: pointer; }
 
 /***** End INPUT **** */
+/***** SIDEBAR **** */
+aside {
+  -webkit-box-flex: 0 0 300px;
+  flex: 0 0 280px;
+  background-color: #5E5E5E; }
+  aside > hr:not([size]) {
+    height: 2px;
+    background-color: #fff; }
+  aside .nav-link > i {
+    width: 50px; }
+  aside .nav-link.active {
+    background-color: #2099C5 !important;
+    color: white !important; }
+
+/***** End SIDEBAR **** */
 
 /*# sourceMappingURL=admin.css.map */

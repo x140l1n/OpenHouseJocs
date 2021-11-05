@@ -1,14 +1,20 @@
 @import "mixins"
 
-/***** OTHERS *****/
-$background-color: #E4ECEF
-/***** End OTHERS *****/
+/***** VARIABLES OTHERS *****/
+$background-body-color: #E4ECEF
+$purple: #764A93
+/***** End VARIABLES OTHERS *****/
+
+/***** VARIABLES SIDEBAR *****/
+$background-sidebar-color: #5E5E5E
+$background-link-active-color: #2099C5
+/***** End VARIABLES SIDEBAR *****/
 
 /***** VARIABLES INPUT *****/
 $border-input-color: #5E5E5E
 /***** End VARIABLES INPUT *****/
 
-/***** SWITCH *****/
+/***** VARIABLES SWITCH *****/
 $form-switch-checked-color: #FA4301
 $form-switch-checked-bg-color: #FA4301
 $form-switch-checked-border-color: #FA4301
@@ -16,11 +22,28 @@ $form-switch-checked-border-color: #FA4301
 $form-switch-color: #000000
 $form-switch-bg-color: #000000
 $form-switch-border-color: #000000
-/***** End SWITCH *****/
+/***** End VARIABLES SWITCH *****/
 
 /***** OTHERS *****/
 body
-    background-color: $background-color
+    background-color: $background-body-color
+
+.container-wrapper
+    padding: 0px
+    padding-top: 66px
+
+.logo-cep
+    width: 50px
+    height: 40px
+    margin-right: 10px
+
+    & > div
+        height: 10px
+        margin-bottom: 3px
+        border-radius: 5px
+
+.bg-purple
+    background-color: $purple
 
 .login-background
     position: relative
@@ -119,3 +142,22 @@ input.form-control
     cursor: pointer
 
 /***** End INPUT *****/
+
+/***** SIDEBAR *****/
+aside
+    -webkit-box-flex: 0 0 300px
+    flex: 0 0 280px
+    background-color: $background-sidebar-color
+
+    & > hr:not([size])
+        height: 2px
+        background-color: #fff
+
+    .nav-link > i
+        width: 50px
+
+    .nav-link.active
+        background-color: $background-link-active-color !important
+        color: white !important
+
+/***** End SIDEBAR *****/

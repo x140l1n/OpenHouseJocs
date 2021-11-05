@@ -2,61 +2,115 @@ document.addEventListener("DOMContentLoaded", init);
 
 /**
  * When the document is loaded.
- * @param {Event} e  Contains a number of properties that describe the event that occurred
+ * @param {Event} e  Contains a number of properties that describe the event that occurred.
  */
 function init(e) {
-    //Get the element target.
-    let document = e.target;
+  //Get the element target (document).
+  let document = e.target;
 
-    //Fire the event switch dark mode when clicked the icon.
-    let iconDarkMode = document.querySelector("#switchDarkMode + i");
-    iconDarkMode.addEventListener("click", function (e) {
-        document.querySelector("#switchDarkMode").click();
-    });
+  //Check the input email when typing.
+  let inputEmail = document.querySelector("#input-email");
+  inputEmail.addEventListener("input", function (e) {
+    let input = e.target;
+    let errorLabel = document.querySelector(input.getAttribute("error-label"));
 
-    //Check the input email.
-    let inputEmail = document.querySelector("#input-email");
-    inputEmail.addEventListener("input", function (e) {
-        let input = e.target;
-        let errorLabel = document.querySelector(input.getAttribute("error-label"));
+    //If the value is not empty.
+    if (input.value.trim()) {
+      //From functions.js.
+      if (validateEmail(input.value)) {
+        input.classList.remove("border-danger");
+        input.classList.add("border-success");
+        errorLabel.classList.add("invisible");
+        errorLabel.innerText = "Error";
+      } else {
+        input.classList.add("border-danger");
+        input.classList.remove("border-success");
+        errorLabel.classList.remove("invisible");
+        errorLabel.innerText = "El email no es válido.";
+      }
+    } else {
+      input.classList.remove("border-success");
+      input.classList.remove("border-danger");
+      errorLabel.classList.add("invisible");
+      errorLabel.innerText = "Error";
+    }
+  });
 
-        if (input.value.trim()) {
-            //From functions.js.
-            if (validateEmail(input.value)) {
-                input.classList.remove("border-danger");
-                input.classList.add("border-success");
-                errorLabel.classList.add("invisible");
-                errorLabel.innerText = "Error";
-            } else {
-                input.classList.add("border-danger");
-                input.classList.remove("border-success");
-                errorLabel.classList.remove("invisible");
-                errorLabel.innerText = "El email no es válido.";
-            }
+  //Event toggle password.
+  let togglePassword = document.querySelector("#toggle-password");
+  togglePassword.addEventListener("click", function (e) {
+    let element = e.currentTarget;
+
+    let inputPassword = document.querySelector(
+      element.getAttribute("input-toggle")
+    );
+
+    if (equalsIgnoreCase(inputPassword.getAttribute("type"), "password")) {
+      inputPassword.setAttribute("type", "text");
+      element.firstChild.classList.toggle("fa-eye");
+      element.firstChild.classList.toggle("fa-eye-slash");
+    } else {
+      inputPassword.setAttribute("type", "password");
+      element.firstChild.classList.toggle("fa-eye");
+      element.firstChild.classList.toggle("fa-eye-slash");
+    }
+  });
+
+  //Form submit event
+  let formLogin = document.forms["form-login"];
+  formLogin.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let form = e.target;
+
+    let email = document.querySelector("#input-email").value;
+
+    //Validate the email.
+    if (validateEmail(email)) {
+      //Add login animation and disable button submit.
+      form.querySelector("button[type='submit']").innerHTML = "<i class='fas fa-spinner fa-spin'></i>";
+      form.querySelector("button[type='submit']").disabled = true;
+
+      //Login and process the promise.
+      login(e.target).then(function (response) {
+        //Remove login animation and disable button submit.
+        form.querySelector("button[type='submit']").innerHTML = "Acceder";
+        form.querySelector("button[type='submit']").disabled = false;
+
+        //If the status code is 200. Login successful.
+        if (response.status === 200) {
+          //Remove message error.
+          form.querySelector("#message-error").classList.add("invisible");
+          form.querySelector("#message-error").innerText = "Error";
+
+          window.location.href = `${CONFIG.url}/views/dashboard.php`;
         } else {
-            input.classList.remove("border-success");
-            input.classList.remove("border-danger");
-            errorLabel.classList.add("invisible");
-            errorLabel.innerText = "Error";
+          //Display message error.
+          form.querySelector("#message-error").classList.remove("invisible");
+
+          if (response.status === 401) {
+            form.querySelector("#message-error").innerText = "Usuario o contraseña incorrecta.";
+          } else {
+            form.querySelector("#message-error").innerText = "Ha ocurrido un error inesperado...";
+          }
         }
-    });
-
-    //Event toggle password.
-    let togglePassword = document.querySelector("#toggle-password");
-    togglePassword.addEventListener("click", function (e) {
-        let element = e.currentTarget;
-
-        let inputPassword = document.querySelector(element.getAttribute("input-toggle"));
-
-        if (equalsIgnoreCase(inputPassword.getAttribute("type"), "password")) {
-            inputPassword.setAttribute("type", "text");
-            element.firstChild.classList.toggle("fa-eye");
-            element.firstChild.classList.toggle("fa-eye-slash");
-        } else {
-            inputPassword.setAttribute("type", "password");
-            element.firstChild.classList.toggle("fa-eye");
-            element.firstChild.classList.toggle("fa-eye-slash");
-        }
-    });
+      });
+    }
+  });
 }
 
+/**
+ * Send the data form to api to check if the login is correct. 
+ * @param {DOMElement} form The form to serialize values.
+ * @return {Promise<Response>} Return the response.
+ */
+async function login(form) {
+    return await fetch(`${CONFIG.url}/user/login`, {
+        method: 'POST',
+        header: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: new FormData(form)
+    });
+}
