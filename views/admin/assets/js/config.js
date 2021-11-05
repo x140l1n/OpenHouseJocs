@@ -1,3 +1,3 @@
 const CONFIG = {
-    "url": "http://localhost/OpenHouseJocs/views/admin"
+    "url": `${window.location.protocol}//${window.location.hostname}/OpenHouseJocs/views/admin`
 }
