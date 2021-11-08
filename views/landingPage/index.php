@@ -76,9 +76,11 @@
       </div>
     </div>
     
-    <!--IMATGE JOC-->
+    <!--IMATGE JOC I RUTA AUTH-->
     <div>
-      <img src="../../media/landingPage/jugar.gif" class="img-fluid" alt="Prémer per jugar">
+    <a href="#" id="../auth/auth" onclick="document.location=this.id+'.php';return false;" >
+    <img src="../../media/landingPage/jugar.gif" class="img-fluid" alt="Prémer per jugar">
+  </a>
     </div>
 
     <!--FOOTER-->
