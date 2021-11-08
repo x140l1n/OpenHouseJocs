@@ -1,22 +1,27 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/bootstrap.css"> -->
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
   <title>OpenhouseJocsNavbar</title>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+
+
+  <script src="../../UI/bootstrap-5.0.2/dist/js/bootstrap.js"></script>
+</body>  -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid">
 
-      <a class="navbar-brand" href="#">
-        <img src="../../../OpenHouseJocs/media/landingPage/logo.png" alt="" width="200" class="d-inline-block align-text-top">
+      <a class="navbar-brand" href="/OpenHouseJocs/views/landingPage/index.php">
+        <img src="/OpenHouseJocs/media/landingPage/logo.png" alt="" width="200" class="d-inline-block align-text-top">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -45,18 +50,15 @@
                 <li><a class="dropdown-item" href="#">English</a></li>
               </ul>
             </li>
-            <div class="form-check form-switch pt-2 pl-2">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
-              <label class="form-check-label" for="flexSwitchCheckChecked">mode</label>
-            </div>
+            <div class="form-check form-switch form-switch-lg">
+                        <div class="form-switch-wrap position-relative float-end">
+                            <input class="form-check-input my-auto mx-auto" type="checkbox" id="switchDarkMode" checked/>
+                            <i class="fas text-light"></i>
+                        </div>
+                    </div>
           </ul>
       </div>
 
     </div>
   </nav>
-
-<!--   <script src="../../UI/bootstrap-5.0.2/dist/js/bootstrap.js"></script> -->
-</body>
-
-
+<script src="/OpenHouseJocs/views/admin/assets/js/login.js"></script>
