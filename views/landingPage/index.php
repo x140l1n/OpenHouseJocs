@@ -50,7 +50,7 @@
           <div class="card">
             <img src="../../media/landingPage/quiSom.png" class="card-img-top" alt="Representació de l'apartat Qui som.">
             <div class="card-body">
-              <h5 class="card-title">Quim som?</h5>
+              <h5 class="card-title">Qui som?</h5>
               <p class="card-text">Que es el centre d'estudis politecnics de Barcelona?</p>
             </div>
           </div>
