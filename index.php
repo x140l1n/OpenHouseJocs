@@ -7,6 +7,9 @@
     <title>OpenHouseJocs</title>
 </head>
 <body>
+  <?php include_once 'components/navbar/navbar.php'; ?>
   HELLO WORLD
+  <?php include_once 'components/footer/footer.php'; ?>
+
 </body>
 </html>
