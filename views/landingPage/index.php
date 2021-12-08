@@ -56,6 +56,7 @@
           </div>
         </div>
         <div class="col d-flex align-items-stretch">
+          <a href="https://politecnics.barcelona/el-centre/projecte-educatiu-de-centre/">
           <div class="card">
             <img src="../../media/landingPage/frase.png" class="card-img-top" alt="Representació de la metodologia del centre FRASE.">
             <div class="card-body">
@@ -63,6 +64,7 @@
               <p class="card-text">T'ensenyem el nostre model d'ensenyament - aprenentatge.</p>
             </div>
           </div>
+          </a>
         </div>
         <div class="col d-flex align-items-stretch">
           <div class="card">
