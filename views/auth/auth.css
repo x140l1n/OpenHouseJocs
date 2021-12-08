@@ -16,7 +16,5 @@
 }
 
 .card {
-  -webkit-box-shadow: 0px 10px 13px -7px #000000, 18px 10px 45px 0px rgba(0, 0, 0, 0.27);
   box-shadow: 0px 10px 13px -7px #000000, 18px 10px 45px 0px rgba(0, 0, 0, 0.27);
-}
-/*# sourceMappingURL=auth.css.map */
+}/*# sourceMappingURL=auth.css.map */

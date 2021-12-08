@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /***** VARIABLES OTHERS *****/
 /***** End VARIABLES OTHERS *****/
 /***** VARIABLES SIDEBAR *****/
@@ -21,7 +22,6 @@ body {
   height: 40px;
   margin-right: 10px;
 }
-
 .logo-cep > div {
   height: 10px;
   margin-bottom: 3px;
@@ -38,7 +38,6 @@ body {
   background-image: url("../../../../media/admin/background.jpg");
   background-size: cover;
 }
-
 .login-background::before {
   content: "";
   position: absolute;
@@ -54,8 +53,7 @@ body {
 }
 
 .logo {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-shrink: 0;
   width: 80px;
   height: 60px;
   min-width: 80px;
@@ -95,16 +93,14 @@ body {
 .form-switch > .form-switch-wrap {
   display: inline-block;
 }
-
 .form-switch > .form-switch-wrap i {
   position: absolute;
   left: 60%;
   top: 25%;
   font-size: 0.78rem;
 }
-
 .form-switch > .form-switch-wrap i::before {
-  content: "\f186";
+  content: "";
 }
 
 .form-switch > .form-switch-wrap > .form-check-input {
@@ -118,21 +114,18 @@ body {
   border-color: #FA4301;
   color: #FA4301;
 }
-
 .form-switch > .form-switch-wrap > .form-check-input:checked + i {
   left: 15%;
   font-size: 0.78rem;
 }
-
 .form-switch > .form-switch-wrap > .form-check-input:checked + i::before {
-  content: "\f185";
+  content: "";
 }
 
 .form-switch > .form-switch-wrap > .form-check-input:focus {
   color: #fff;
   outline: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 /*END SWITCH*/
@@ -160,25 +153,19 @@ input.form-control {
 /***** End INPUT *****/
 /***** SIDEBAR *****/
 aside {
-  -webkit-box-flex: 0 0 300px;
-  -ms-flex: 0 0 280px;
-      flex: 0 0 280px;
+  flex: 0 0 280px;
   background-color: #5E5E5E;
 }
-
 aside > hr:not([size]) {
   height: 2px;
   background-color: #fff;
 }
-
 aside .nav-link > i {
   width: 50px;
 }
-
 aside .nav-link.active {
   background-color: #2099C5 !important;
   color: white !important;
 }
 
-/***** End SIDEBAR *****/
-/*# sourceMappingURL=admin.css.map */
+/***** End SIDEBAR *****//*# sourceMappingURL=admin.css.map */
