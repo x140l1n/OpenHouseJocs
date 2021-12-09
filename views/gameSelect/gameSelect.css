@@ -11500,5 +11500,7 @@ fieldset:disabled .btn {
 
 .gSelect_img {
   border-radius: 15px;
+  width: 100px;
+  height: 100px;
 }
 /*# sourceMappingURL=gameSelect.css.map */
