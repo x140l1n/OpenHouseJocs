@@ -1,22 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <title>OpenhouseJocsNavbar</title>
-</head>
-
-<body>
-
-
-
-  <script src="../../UI/bootstrap-5.0.2/dist/js/bootstrap.js"></script>
-</body>  -->
-
 <link rel="stylesheet" href="../../views/admin/assets/css/admin.css">
 <link rel="stylesheet" href="../../views/admin/assets/css/bootstrap.css">
 
@@ -47,9 +28,9 @@
             Idiomas
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Catalá</a></li>
-            <li><a class="dropdown-item" href="#">Español</a></li>
-            <li><a class="dropdown-item" href="#">English</a></li>
+            <li><a class="dropdown-item" href="?dummy=cat#cat" data-reload>Catalá</a></li>
+            <li><a class="dropdown-item" href="?dummy=es#es" data-reload>Castellano</a></li>
+            <li><a class="dropdown-item" href="?dummy=en#en" data-reload>English</a></li>
           </ul>
         </li>
         <div class="form-check form-switch form-switch-lg pt-2" style="padding-left: 0;">
