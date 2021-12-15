@@ -37,8 +37,11 @@ let userInfo = [];
 let fselect = [];
 let cselect = [];
 
+let family;
+let cycles;
+
 // To  create dropdown and populate
-function myFormacions(myArray, myId) {
+function myDropdown(myArray, myId) {
   let parent = document.getElementById(myId);
   let idName;
 
@@ -108,6 +111,8 @@ function reviewCheckBox(myCheckbox, selected) {
   for (let i = 0; i < total; i++) {
     if (myCheckbox[i].checked) {
       selected.push(myCheckbox[i].value);
+      //get_cycles(myCheckbox[i].id);
+      //myDropdown(cycles, "dropdownCicloButton");
     } else {
       i++;
     }
@@ -156,10 +161,10 @@ function checkInput() {
 
 // wait for window to load before calling and loading functions
 window.onload = function () {
+  get_family();
   nameDiv.style.display = "none";
   surNameDiv.style.display = "none";
   cicloDiv.style.display = "none";
-  myFormacions(formacions, "dropdownFormacionButton");
-  myFormacions(ciclo, "dropdownCicloButton");
+  myDropdown(formacions, "dropdownFormacionButton");
   reviewCheckBox(myDropdownF, fselect);
 };
