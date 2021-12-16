@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,iBAAiB,CAAC;EACd,gBAAgB,EAAE,6CAA6C;EAC/D,eAAe,EAAE,KAAK;CAIA;;AAN1B,AAII,iBAJa,AAIZ,OAAO,CAAC;EACL,gBAAgB,EAAE,KAAK;EACvB,OAAO,EAAE,IAAI;CAAG",
-    "sources": [
-        "admin.sass"
-    ],
-    "names": [],
-    "file": "admin.css"
-}
