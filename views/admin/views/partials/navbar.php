@@ -8,12 +8,12 @@
             <div class="bg-success"></div>
             <div class="bg-info"></div>
         </div>
-        <span class="text-uppercase fw-bold fs-5">Menú</span>
+        <span class="text-uppercase fw-bold fs-5">Panel Administrador OpenHouseJocs</span>
       </a>
       <div class="form-check form-switch form-switch-md">
           <div class="form-switch-wrap position-relative float-end">
               <input class="form-check-input my-auto mx-auto" type="checkbox" id="switchDarkMode" checked />
-              <i class="fas text-light"></i>
+              <i class="fas text-light fa-fw"></i>
           </div>
       </div>
     </div>

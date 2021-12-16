@@ -29,6 +29,17 @@ body {
 .bg-purple {
   background-color: #764A93; }
 
+.bg-turquoise {
+  background-color: #40E0D0; }
+
+.card-480 {
+  height: 480px;
+  overflow-y: auto; }
+
+.table thead {
+  position: sticky;
+  top: 0; }
+
 .login-background {
   position: relative;
   height: 100vh;
@@ -110,10 +121,10 @@ body {
 
 /*END SWITCH */
 /***** INPUT **** */
-input.form-control {
+input.form-control.form-control-border {
   border: 2px solid #5E5E5E; }
 
-.input-password {
+input.form-control.form-control-border.input-password {
   border-right: 0px !important;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px; }
@@ -130,8 +141,10 @@ input.form-control {
 /***** End INPUT **** */
 /***** SIDEBAR **** */
 aside {
-  -webkit-box-flex: 0 0 300px;
-  flex: 0 0 280px;
+  position: fixed;
+  width: 300px;
+  z-index: 1;
+  height: calc(100vh - 66px);
   background-color: #5E5E5E; }
   aside > hr:not([size]) {
     height: 2px;
@@ -141,6 +154,9 @@ aside {
   aside .nav-link.active {
     background-color: #2099C5 !important;
     color: white !important; }
+
+main {
+  margin-left: 300px; }
 
 /***** End SIDEBAR **** */
 

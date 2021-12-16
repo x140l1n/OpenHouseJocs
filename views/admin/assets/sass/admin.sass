@@ -3,6 +3,7 @@
 /***** VARIABLES OTHERS *****/
 $background-body-color: #E4ECEF
 $purple: #764A93
+$turquoise: #40E0D0
 /***** End VARIABLES OTHERS *****/
 
 /***** VARIABLES SIDEBAR *****/
@@ -44,6 +45,17 @@ body
 
 .bg-purple
     background-color: $purple
+
+.bg-turquoise
+    background-color: $turquoise
+
+.card-480
+    height: 480px
+    overflow-y: auto
+
+.table thead
+    position: sticky
+    top: 0
 
 .login-background
     position: relative
@@ -124,10 +136,10 @@ body
 /*END SWITCH*/
 
 /***** INPUT *****/
-input.form-control
+input.form-control.form-control-border
     border: 2px solid $border-input-color
 
-.input-password
+input.form-control.form-control-border.input-password
     border-right: 0px !important
     border-top-right-radius: 0px
     border-bottom-right-radius: 0px
@@ -145,8 +157,10 @@ input.form-control
 
 /***** SIDEBAR *****/
 aside
-    -webkit-box-flex: 0 0 300px
-    flex: 0 0 280px
+    position: fixed
+    width: 300px
+    z-index: 1
+    height: calc(100vh - 66px)
     background-color: $background-sidebar-color
 
     & > hr:not([size])
@@ -160,4 +174,6 @@ aside
         background-color: $background-link-active-color !important
         color: white !important
 
+main 
+    margin-left: 300px
 /***** End SIDEBAR *****/

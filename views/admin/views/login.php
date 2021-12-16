@@ -16,7 +16,7 @@
         //Import the head.
         require("partials/head.php");
     ?>
-    <title>Login - Panel Admin</title>
+    <title>Login - Panel Administrador OpenHouseJocs</title>
 </head>
 
 <body class="vh-100">
@@ -28,7 +28,7 @@
                     <div class="form-check form-switch form-switch-md">
                         <div class="form-switch-wrap position-relative float-end">
                             <input class="form-check-input my-auto mx-auto" type="checkbox" id="switchDarkMode" checked />
-                            <i class="fas text-light"></i>
+                            <i class="fas text-light fa-fw"></i>
                         </div>
                     </div>
                 </div>
@@ -37,23 +37,23 @@
                         <div class="row col mb-4">
                             <div class="d-flex justify-content-center">
                                 <img src="../../../media/admin/logo.png" class="logo me-2 my-auto" />
-                                <span class="fs-5 fw-bold title">Panel administración <br>OpenHouseJocs</span>
+                                <span class="fs-5 fw-bold title">Panel Administrador <br>OpenHouseJocs</span>
                             </div>
                             <small class="fw-bold text-center mt-5">Rellena todos los campos para acceder.</small>
                         </div>
                         <div class="row col">
                             <form name="form-login">
                                 <div class="form-floating mb-3">
-                                    <input type="input-email" class="form-control" id="input-email" name="email" placeholder="Email" error-label="#email-error" value="xjinl67@cepnet.net" required>
+                                    <input type="input-email" class="form-control form-control-border" id="input-email" name="email" placeholder="Email" error-label="#email-error" value="xjinl67@cepnet.net" required>
                                     <label for="email">Email</label>
                                     <span id="email-error" class="form-text text-danger invisible">Error.</span>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="form-floating flex-grow-1">
-                                        <input type="password" class="form-control input-password" id="input-password" name="password" placeholder="Contraseña" error-label="#password-error" required>
+                                        <input type="password" class="form-control form-control-border input-password" id="input-password" name="password" placeholder="Contraseña" error-label="#password-error" required>
                                         <label for="input-password">Contraseña</label>
                                     </div>
-                                    <span class="input-group-text" id="toggle-password" input-toggle="#input-password"><i class="fas fa-eye"></i></span>
+                                    <span class="input-group-text" id="toggle-password" input-toggle="#input-password"><i class="fas fa-eye fa-fw"></i></span>
                                     <span id="password-error" class="form-text text-danger invisible w-100">Error.</span>
                                 </div>
                                 <span id="message-error" class="fw-bold text-danger invisible">Ha ocurrido un error inesperado.</span>
@@ -67,6 +67,7 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="../assets/js/index.js"></script>
     <script type="text/javascript" src="../assets/js/config.js"></script>
     <script type="text/javascript" src="../assets/js/functions.js"></script>
     <script type="text/javascript" src="../assets/js/login.js"></script>

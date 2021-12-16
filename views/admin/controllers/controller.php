@@ -61,8 +61,6 @@ if ($url) {
         } else {
             Response::send(array("msg" => "Method '$method' not found."), Response::HTTP_NOT_FOUND);
         }
-    } else {
-        Response::send(array("msg" => "Controller '$controller' not found."), Response::HTTP_NOT_FOUND);
     }
 } else {
     Response::send(array("msg" => "URL not specified."), Response::HTTP_NOT_FOUND);
