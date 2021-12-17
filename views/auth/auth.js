@@ -1,29 +1,33 @@
-//this will be deleted
-let emailUser = "example@example.com";
-//---------
-
-const emailPattern =
+const EMAILPATTERN =
   /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 let nameDiv = document.getElementById("nameDiv");
 let surNameDiv = document.getElementById("surnameDiv");
+let nicknameDiv = document.getElementById("nicknameDiv");
 let cicloDiv = document.getElementById("cicloDiv");
 
 let email = document.getElementById("emailInput");
 let nameInput = document.getElementById("nameInput");
 let surNameInput = document.getElementById("surnameInput");
+let nicknameInput = document.getElementById("nicknameInput");
 let myDropdownF = document.getElementsByName("formacions");
 let myDropdownC = document.getElementsByName("ciclo");
 
-let userInfo = [];
+let userInfo;
 
 let family;
 let cycles;
 let checkedCB = [];
 let checkedCBCycles;
+let userExist = true;
 
 //this will validate inputs and check if email pattern is correct
 function validateInput(inputId) {
+  let found = false;
+  let i = 0;
+  let objKey = Object.keys(userInfo);
+  let objValue = Object.values(userInfo);
+
   if (inputId.type == "text") {
     if (
       inputId.value == "" ||
@@ -35,21 +39,36 @@ function validateInput(inputId) {
       inputId.setAttribute("class", "form-control is-valid");
     }
   } else if (inputId.type == "email") {
-    let emailTest = emailPattern.test(inputId.value);
+    let emailTest = EMAILPATTERN.test(inputId.value);
 
     if (emailTest == false) {
       inputId.setAttribute("class", "form-control is-invalid");
     } else if (emailTest == true) {
       inputId.setAttribute("class", "form-control is-valid");
-      if (inputId.value !== emailUser) {
-        nameDiv.style.display = "block";
-        surNameDiv.style.display = "block";
-        cicloDiv.style.display = "block";
-      } else {
-        nameDiv.style.display = "none";
-        surNameDiv.style.display = "none";
-        cicloDiv.style.display = "none";
-      }
+
+      do {
+        if (inputId.value !== objValue[i].email) {
+          nameDiv.style.display = "block";
+          surNameDiv.style.display = "block";
+          cicloDiv.style.display = "block";
+          nicknameDiv.style.display = "block";
+          found = true;
+          userExist = false;
+        } else if (inputId.value === objValue[i].email) {
+          nameDiv.style.display = "none";
+          surNameDiv.style.display = "none";
+          cicloDiv.style.display = "none";
+          nicknameDiv.style.display = "none";
+          found = true;
+          userExist = true;
+        } else if(i == objKey){
+          found = false;
+        } else {
+          i++;
+        }
+        
+      } while (!found);
+
     }
   }
 }
@@ -110,7 +129,7 @@ function myDropdown() {
           input.setAttribute("class", "m-2");
           input.setAttribute("id", objValues[j].id);
           input.setAttribute("name", objValues[j].name);
-          input.setAttribute("onchange", "reviewCheckBoxCycle()");
+          //input.setAttribute("onchange", "reviewCheckBoxCycle()");
 
           label.setAttribute("for", objValues[j].id);
           label.textContent = objValues[j].name;
@@ -128,13 +147,14 @@ function myDropdown() {
 
 //this is when form is sent and will save user with it's information.
 function submitForm() {
-  if (email.value == emailUser && email.value !== "") {
-    userInfo["email"] = email.value;
-    insert_form();
+
+  if (!userExist) {
+    insert_user_info(email.value, nameInput.value, surNameInput.value, nicknameInput.value);
+    //window.location.href = "views/gameSelect/gameSelect.html";
+  } else if(userExist){
+     window.location.href = "views/gameSelect/gameSelect.html";
   } else {
-    userInfo["email"].push(email.value);
-    userInfo["name"].push(nameInput.value);
-    userInfo["surname"].push(surNameInput.value);
+    alert("ERROR");
   }
 }
 
@@ -151,6 +171,7 @@ function checkInput() {
     (email.value !== null || email.value !== "") &&
     (nameInput.value !== null || nameInput.value !== "") &&
     (surNameInput.value !== null || surNameInput.value !== "") &&
+    (nicknameInput.value !== null || nicknameInput.value !== "") &&
     myDropdownF.checked !== "" &&
     myDropdownC.checked !== ""
   ) {
@@ -162,7 +183,9 @@ function checkInput() {
 window.onload = function () {
   get_family();
   get_cycles();
+  get_users();
   nameDiv.style.display = "none";
   surNameDiv.style.display = "none";
   cicloDiv.style.display = "none";
+  nicknameDiv.style.display = "none";
 };

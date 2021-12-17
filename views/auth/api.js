@@ -93,14 +93,9 @@ function get_cycles() {
  * Submit form
  * @param {Element} table The table to insert records.
  */
-function insert_form(email, firstname, lastname) {
+function get_users() {
   let data = new FormData();
-  data.append("action", "insert_user");
-  data.append("email", email);
-  data.append("firstname", firstname);
-  data.append("lastname", lastname);
-  data.append("nickname", firstname);
-  data.append("id_rol", 3);
+  data.append("action", "get_all_users");
 
   fetch("./backend/index.php", {
     method: "POST",
@@ -110,7 +105,32 @@ function insert_form(email, firstname, lastname) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data.data);
-      
+      userInfo = data.data;
+    })
+    .catch((error) => console.error(error));
+}
+
+
+/**
+ * Submit form
+ * @param {Element} table The table to insert records.
+ */
+function insert_user_info(email, firstname, lastname, nickname) {
+  let data = new FormData();
+  data.append("action", "insert_user");
+  data.append("email", email);
+  data.append("firstname", firstname);
+  data.append("lastname", lastname);
+  data.append("nickname", nickname);
+  data.append("id_rol", 3);
+
+  fetch("./backend/index.php", {
+    method: "POST",
+    cache: "no-cache",
+    body: data,
+  })
+    .then((response) => response.json())
+    .then((data) => {
     })
     .catch((error) => console.error(error));
 }
