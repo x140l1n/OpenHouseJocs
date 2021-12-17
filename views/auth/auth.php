@@ -7,18 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="auth.css">
-    <link rel="stylesheet" href="../../components/navbar/navbar.css">
-    <link rel="stylesheet" href="../../components/footer/footer.css">
     <title>Login game</title>
 </head>
 
-<body class="h-100">
+<body class="d-flex flex-column vh-100">
     <?php
     //navbar global component
     include __DIR__ . '../../../components/navbar/navbar.php';
     ?>
-    <div class="container-fluid mt-lg-3 mt-md-3 mt-sm-0">
-        <div class="card">
+
+        <div class="card my-auto">
             <div class="row g-0">
 
                 <div class="col-lg-7 col-md col-sm">
@@ -99,7 +97,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <!--FOOTER-->
     <?php
@@ -109,9 +106,10 @@
     <!--Script js-->
     <script src="api.js"></script>
     <script src="auth.js"></script>
-    <script src="../../UI/bootstrap-5.0.2/dist/js/bootstrap.bundle.js"></script>
     <script src="../../lang/translateAuth.js"></script>
     <script src="../../lang/translate.js"></script>
+    <script src="../../UI/bootstrap-5.0.2/dist/js/bootstrap.js"></script>
+    <script src="switch.js"></script>
 </body>
 
 </html>
