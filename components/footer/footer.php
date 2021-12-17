@@ -1,4 +1,4 @@
-<footer class="bg-light text-center text-white">
+<footer id="footer" class="footer bg-light text-center text-white">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
     <!-- Section: Social media -->
@@ -10,7 +10,7 @@
         href="https://es-es.facebook.com/politecnics/"
         target="_blank"
         role="button"
-        ><i class="fab fa-facebook-f"></i
+        ><i class="fab fa-facebook-f fa-fw"></i
       ></a>
 
       <!-- Twitter -->
@@ -20,7 +20,7 @@
         href="https://twitter.com/CE_Politecnics"
         target="_blank"
         role="button"
-        ><i class="fab fa-twitter"></i
+        ><i class="fab fa-twitter fa-fw"></i
       ></a>
 
       <!-- Youtube -->
@@ -30,7 +30,7 @@
         href="https://www.youtube.com/user/CEPbcn"
         target="_blank"
         role="button"
-        ><i class="fab fa-youtube"></i
+        ><i class="fab fa-youtube fa-fw"></i
       ></a>
 
       <!-- Instagram -->
@@ -40,7 +40,7 @@
         target="_blank"
         href="https://www.instagram.com/ce_politecnics/"
         role="button"
-        ><i class="fab fa-instagram"></i
+        ><i class="fab fa-instagram fa-fw"></i
       ></a>
 
       <!-- Linkedin -->
@@ -50,7 +50,7 @@
         href="https://www.linkedin.com/school/politecnics/"
         target="_blank"
         role="button"
-        ><i class="fab fa-linkedin-in"></i
+        ><i class="fab fa-linkedin-in fa-fw"></i
       ></a>
     <!-- Section: Social media -->
   </div>

@@ -4,10 +4,10 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-@import url(/Applications/XAMPP/xamppfiles/htdocs/OpenHouseJocs/UI/fontawesome-free-5.15.4-web/css/fontawesome.css);
-@import url(/Applications/XAMPP/xamppfiles/htdocs/OpenHouseJocs/UI/fontawesome-free-5.15.4-web/css/solid.css);
-@import url(/Applications/XAMPP/xamppfiles/htdocs/OpenHouseJocs/UI/fontawesome-free-5.15.4-web/css/regular.css);
-@import url(/Applications/XAMPP/xamppfiles/htdocs/OpenHouseJocs/UI/fontawesome-free-5.15.4-web/css/brands.css);
+@import url(c:\xampp\htdocs\OpenHouseJocs\UI\fontawesome-free-5.15.4-web\css\fontawesome.css);
+@import url(c:\xampp\htdocs\OpenHouseJocs\UI\fontawesome-free-5.15.4-web\css\solid.css);
+@import url(c:\xampp\htdocs\OpenHouseJocs\UI\fontawesome-free-5.15.4-web\css\regular.css);
+@import url(c:\xampp\htdocs\OpenHouseJocs\UI\fontawesome-free-5.15.4-web\css\brands.css);
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;

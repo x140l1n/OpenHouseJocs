@@ -25,6 +25,7 @@
             Idiomas
           </a>
           <ul id="nav-dropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
             <li><a class="dropdown-item" href="?dummy=cat#cat" data-reload>Catalá</a></li>
             <li><a class="dropdown-item" href="?dummy=es#es" data-reload>Castellano</a></li>
             <li><a class="dropdown-item" href="?dummy=en#en" data-reload>English</a></li>
@@ -40,4 +41,5 @@
     </div>
 
   </div>
+
 </nav>
