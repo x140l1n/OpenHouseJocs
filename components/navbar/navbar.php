@@ -1,11 +1,8 @@
-<link rel="stylesheet" href="../../views/admin/assets/css/admin.css">
-<link rel="stylesheet" href="../../views/admin/assets/css/bootstrap.css">
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
   <div class="container-fluid">
 
     <a class="navbar-brand" href="/OpenHouseJocs/views/landingPage/index.php">
-      <img src="/OpenHouseJocs/media/landingPage/logo.png" alt="" width="200" class="d-inline-block align-text-top">
+      <img id="logo" src="/OpenHouseJocs/media/landingPage/logo.png" alt="" width="200" class="d-inline-block align-text-top">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -27,13 +24,13 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Idiomas
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <ul id="nav-dropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="?dummy=cat#cat" data-reload>Catalá</a></li>
             <li><a class="dropdown-item" href="?dummy=es#es" data-reload>Castellano</a></li>
             <li><a class="dropdown-item" href="?dummy=en#en" data-reload>English</a></li>
           </ul>
         </li>
-        <div class="form-check form-switch form-switch-lg pt-2" style="padding-left: 0;">
+        <div class="form-check form-switch form-switch-md pt-2" style="padding-left: 0;">
           <div class="form-switch-wrap position-relative float-end">
             <input class="form-check-input my-auto mx-auto" type="checkbox" id="switchDarkMode" checked />
             <i class="fas text-light"></i>
@@ -44,4 +41,3 @@
 
   </div>
 </nav>
-<script src="/OpenHouseJocs/views/admin/assets/js/function.js"></script>
