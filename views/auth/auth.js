@@ -1,27 +1,9 @@
-let formacions = [
-  "Comerç i Màrqueting",
-  "Hoteleria i Turisme",
-  "Informàtica i Comunicacions",
-  "Administració i Gestió",
-];
-
-let ciclo = [
-  "Grau mitjà activitats comercials",
-  "Grau superior màrqueting i publicitat",
-  "Grau superior comerç internacional",
-  "Grau superior agències de viatges i gestió d’esdeveniments",
-  "Grau superior desenvolupament aplicacions multiplataforma",
-  "Grau superior desenvolupament aplicacions web",
-  "Grau mitjà gestió administrativa",
-  "Grau superior administració i finances",
-  "Grau superior assistència a la direcció",
-];
-
 //this will be deleted
 let emailUser = "example@example.com";
 //---------
 
-const emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const emailPattern =
+  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 let nameDiv = document.getElementById("nameDiv");
 let surNameDiv = document.getElementById("surnameDiv");
@@ -34,44 +16,11 @@ let myDropdownF = document.getElementsByName("formacions");
 let myDropdownC = document.getElementsByName("ciclo");
 
 let userInfo = [];
-let fselect = [];
-let cselect = [];
 
 let family;
 let cycles;
-
-// To  create dropdown and populate
-function myDropdown(myArray, myId) {
-  let parent = document.getElementById(myId);
-  let idName;
-
-  if (myArray == formacions) {
-    idName = "formacions";
-  } else if (myArray == ciclo) {
-    idName = "ciclo";
-  }
-
-  for (let i = 0; i < myArray.length; i++) {
-    let list = document.createElement("li");
-    let input = document.createElement("input");
-    let label = document.createElement("label");
-
-    input.type = "checkbox";
-    input.setAttribute("value", myArray[i]);
-    input.setAttribute("class", "m-2");
-    input.setAttribute("id", idName + i);
-    input.setAttribute("name", idName);
-
-    label.appendChild(document.createTextNode(myArray[i]));
-    label.setAttribute("for", i);
-
-    list.setAttribute("class", "mx-2 py-1");
-
-    parent.appendChild(list);
-    list.appendChild(input);
-    list.appendChild(label);
-  }
-}
+let checkedCB = [];
+let checkedCBCycles;
 
 //this will validate inputs and check if email pattern is correct
 function validateInput(inputId) {
@@ -105,37 +54,87 @@ function validateInput(inputId) {
   }
 }
 
+
+
 //this will check and push checkbox selected value in array;
-function reviewCheckBox(myCheckbox, selected) {
-  let total = myCheckbox.length;
-  for (let i = 0; i < total; i++) {
-    if (myCheckbox[i].checked) {
-      selected.push(myCheckbox[i].value);
-      //get_cycles(myCheckbox[i].id);
-      //myDropdown(cycles, "dropdownCicloButton");
-    } else {
-      i++;
+function reviewCheckBox() {
+  let objKeys = Object.keys(family);
+  let objValues = Object.values(family);
+  checkedCB = [];
+
+  for (let j = 0; j < objKeys.length; j++) {
+    if (document.getElementById(objValues[j].id).checked) {
+      checkedCB.push(objValues[j]);
+      console.log(checkedCB);
+      itChecked = true;
     }
   }
+  myDropdown();
+}
 
-  return selected;
+//this will check and push checkbox selected value in array;
+function reviewCheckBoxCycle() {
+  let objKeys = Object.keys(cycles);
+  let objValues = Object.values(cycles);
+  checkedCBCycles = [];
+
+  for (let j = 0; j < objKeys.length; j++) {
+    if (document.getElementById(objValues[j].id).checked) {
+      checkedCBCycles.push(objValues[j]);
+      console.log(checkedCBCycles);
+      itChecked = true;
+    }
+  }
+}
+
+// To  create dropdown and populate
+function myDropdown() {
+
+  let parent = document.getElementById("dropdownCicloButton");
+  while (parent.firstChild) {
+    parent.removeChild(parent.lastChild);
+  }
+
+  for (let i = 0; i < checkedCB.length; i++) {
+    let objKeys = Object.keys(cycles);
+    for (let j = 0; j < objKeys.length; j++) {
+      let objValues = Object.values(cycles);
+
+      if (checkedCB[i].id === objValues[j].id_family) {
+
+          let list = document.createElement("li");
+          let input = document.createElement("input");
+          let label = document.createElement("label");
+          input.type = "checkbox";
+          input.setAttribute("value", objValues[j].name);
+          input.setAttribute("class", "m-2");
+          input.setAttribute("id", objValues[j].id);
+          input.setAttribute("name", objValues[j].name);
+          input.setAttribute("onchange", "reviewCheckBoxCycle()");
+
+          label.setAttribute("for", objValues[j].id);
+          label.textContent = objValues[j].name;
+
+          list.setAttribute("class", "mx-2 py-1");
+
+          parent.appendChild(list);
+          list.appendChild(input);
+          list.appendChild(label);
+        
+      }
+    }
+  }
 }
 
 //this is when form is sent and will save user with it's information.
 function submitForm() {
   if (email.value == emailUser && email.value !== "") {
-    reviewCheckBox(myDropdownF, fselect);
     userInfo["email"] = email.value;
-    userInfo["formacions"] = fselect;
+    insert_form();
   } else {
-    reviewCheckBox(myDropdownF, fselect);
-    reviewCheckBox(myDropdownC, cselect);
-
     userInfo["email"].push(email.value);
     userInfo["name"].push(nameInput.value);
     userInfo["surname"].push(surNameInput.value);
-    userInfo["formacions"].push(fselect);
-    userInfo["ciclo"].push(cselect);
   }
 }
 
@@ -162,9 +161,8 @@ function checkInput() {
 // wait for window to load before calling and loading functions
 window.onload = function () {
   get_family();
+  get_cycles();
   nameDiv.style.display = "none";
   surNameDiv.style.display = "none";
   cicloDiv.style.display = "none";
-  myDropdown(formacions, "dropdownFormacionButton");
-  reviewCheckBox(myDropdownF, fselect);
 };

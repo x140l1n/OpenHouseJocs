@@ -82,7 +82,7 @@
                                     <button id="dbname" class="btn btn-secondary dropdown-toggle" type="button" aria-labelledby="dropdownCicloButton" data-bs-toggle="dropdown" aria-expanded="false">
                                         Cicle
                                     </button>
-                                    <ul class="dropdown-menu" name="dropdownCicloButton" id="dropdownCicloButton" aria-labelledby="dropdownCicloButton"></ul>
+                                    <ul class="dropdown-menu" name="dropdownCicloButton" id="dropdownCicloButton" aria-labelledby="dropdownCicloButton" style="display: inline-block;"></ul>
                                 </div>
 
                                 <div class="d-grid mt-3">
@@ -107,8 +107,8 @@
     ?>
 
     <!--Script js-->
-    <script src="auth.js"></script>
     <script src="api.js"></script>
+    <script src="auth.js"></script>
     <script src="../../UI/bootstrap-5.0.2/dist/js/bootstrap.bundle.js"></script>
     <script src="../../lang/translateAuth.js"></script>
     <script src="../../lang/translate.js"></script>

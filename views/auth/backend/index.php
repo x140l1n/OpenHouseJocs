@@ -27,26 +27,18 @@ function get_all_cycles()
 {
     $cycles = [];
 
-    $id_cycle_family = isset($_POST["id_cycle_family"]) ? $_POST["id_cycle_family"] : -1;
-
     try {
-        if ($id_cycle_family !== -1) {
             $db = new Database();
 
-            $statement = $db->connect()->prepare("SELECT c.name as cicle, c.id_family
-                                                  FROM cycle c
-                                                  WHERE  c.id_family = :id_cycle_family");
-
-            $statement->bindParam(":id_cycle_family", $id_cycle_family);
+            $statement = $db->connect()->prepare("SELECT c.id, c.name, c.id_family
+                                                  FROM cycle c");
 
             $statement->execute();
 
             $cycles = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             Response::send(array("msg" => "Ok.", "data" => $cycles), Response::HTTP_OK);
-        } else {
-            Response::send(array("msg" => "Miss params."), Response::HTTP_UNPROCESSABLE_ENTITY);
-        }
+
     } catch (PDOException $e) {
         Response::send(array("msg" => "An unexpected error has occurred: " . $e->getMessage()), Response::HTTP_INTERNAL_SERVER_ERROR);
     }
@@ -90,17 +82,33 @@ function insert_user()
             $statement->bindParam(":email", $email);
 
             $statement->execute();
+            //fetch result
+            $email = $statement->fetch();
+            
+            if ($email) {
+                //If user exists.
+                $statement = $db->connect()->prepare("SELECT u.email, u.firstname, u.lastname, u.nickname FROM user u WHERE u.email = :email");
 
-            if (!$is_new_user) {
+                $statement->bindParam(":email", $email);
+                $statement->bindParam(":firstname", $firstname);
+                $statement->bindParam(":lastname", $lastname);
+                $statement->bindParam(":nickname", $nickname);
+
+                $statement->execute();
+                $is_new_user = false;
+                
+            } else {
                 //If user not exists.
                 $statement = $db->connect()->prepare("INSERT INTO user (email, firstname, lastname, nickname, id_rol) VALUES (:email, :firstname, :lastname, :id_rol)");
 
+                $statement->bindParam(":email", $email);
                 $statement->bindParam(":firstname", $firstname);
                 $statement->bindParam(":lastname", $lastname);
                 $statement->bindParam(":nickname", $nickname);
                 $statement->bindParam(":id_rol", $id_rol);
 
                 $statement->execute();
+                $is_new_user = true;
             }
 
             Response::send(array("msg" => "Ok.", "is_new_user" => $is_new_user), Response::HTTP_OK);
