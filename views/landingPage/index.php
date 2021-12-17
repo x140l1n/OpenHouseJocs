@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="bootstrap.css">
   <link rel="stylesheet" href="landingPage.css">
   <link rel="shortcut icon" href="../../media/iconoPestanya.png" />
+
   <title>OpenHouseJocs</title>
 </head>
 
@@ -49,7 +50,6 @@
   <div class="cards">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
       <div class="col d-flex align-items-stretch">
-        
         <div class="card">
         <a href="https://politecnics.barcelona/el-centre/">
           <img src="../../media/landingPage/quiSom.png" class="card-img-top" alt="Representació de l'apartat Qui som.">
@@ -96,6 +96,8 @@
   <?php
   include __DIR__ . '../../../components/footer/footer.php';
   ?>
+  <script src="../../lang/translateLP.js"></script>
+  <script src="../../lang/translate.js"></script>
   <script src="../../UI/bootstrap-5.0.2/dist/js/bootstrap.js"></script>
   <script src="switch.js"></script>
 </body>
