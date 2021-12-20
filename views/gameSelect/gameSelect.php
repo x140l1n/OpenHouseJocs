@@ -15,7 +15,7 @@
     </div>
 
     <div class="title">
-        <h2>Bienvenido, Juanito</h2>
+        <h2>Bienvenido, Jugador/a</h2>
         <p>Selecciona ciclo</p>
         <select>
             <option>DAW</option>
