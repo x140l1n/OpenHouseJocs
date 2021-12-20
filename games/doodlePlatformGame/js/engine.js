@@ -190,7 +190,7 @@ function addScore() {
 ////////////////////////////
 
 //Time
-function startCount() {
+function startCountTime() {
   if (!timer_is_on) {
     timer_is_on = 1;
     timedCount();

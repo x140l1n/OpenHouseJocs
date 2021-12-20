@@ -1,5 +1,5 @@
 /**
- * Get all jobs oportunities from
+ * Get all jobs oportunities
  * @param {Element} table The table to insert records.
  */
 function get_jobs() {
@@ -20,7 +20,7 @@ function get_jobs() {
 }
 
 /**
- * Get all jobs oportunities from
+ * Get all family
  * @param {Element} table The table to insert records.
  */
 function get_family() {
@@ -131,6 +131,12 @@ function insert_user_info(email, firstname, lastname, nickname) {
     })
     .catch((error) => console.error(error));
 }
+
+
+/**
+ * Insert formaciones with user id
+ * @param {Element} table The table to insert records.
+ */
 
 function insert_family(email, id_family) {
   let data = new FormData();

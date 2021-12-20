@@ -19,6 +19,7 @@ function moveLeft() {
     isGoingRight = false;
   }
   isGoingLeft = true;
+  //so that doodler won't keep going right and will stop
   leftTimerId = setInterval(() => {
     if (doodlerLeftSpace > 10) {
       doodlerLeftSpace -= 20;
@@ -43,6 +44,7 @@ function moveRight() {
     isGoingLeft = false;
   }
   isGoingRight = true;
+  //so that doodler won't keep going right and will stop 
   rightTimerId = setInterval(function () {
     if (doodlerLeftSpace <= GRIDWIDTH - 60) {
       doodlerLeftSpace += 20;
@@ -55,7 +57,7 @@ function moveRight() {
   }, velocityRight);
 }
 
-/////////////////////////////
+/*  /////////////////////////////
 //      MOVE STARIGHT      //
 ////////////////////////////
 
@@ -65,7 +67,7 @@ function moveStraight() {
   isGoingRight = false;
   clearInterval(leftTimerId);
   clearInterval(rightTimerId);
-}
+}  */
 
 /////////////////////////////
 //         CONTROL         //
@@ -83,10 +85,26 @@ function control(e) {
   } else if (e.key === "ArrowRight") {
     //move right
     moveRight();
-  } else if (e.key === "ArrowUp") {
+  } /* else if (e.key === "ArrowUp") {
     //move sraight up
     moveStraight();
-  }
+  } */
+
+
+/*   switch (e.key) {
+    case "ArrowLeft":
+      //move left
+      moveLeft();
+      break;
+
+    case "ArrowRight":
+      //move right
+      moveRight();
+      break;
+
+    default:
+      break;
+  } */
 }
 
 // STOP controller

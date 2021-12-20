@@ -75,7 +75,6 @@ function gameOver() {
   //stop timer
   stopCount();
   send_score(scoreFinal, id_game, user_id, cycle_id);
-  //GRID.appendChild(home);
 }
 
 /////////////////////////////
@@ -99,7 +98,7 @@ function gameOver() {
       platformTimerId = setInterval(movePlatforms, velocityPlatform); //every 25/1000
       jump();
       countScore(score);
-      startCount();
+      startCountTime();
       document.addEventListener("keydown", control);
       document.addEventListener("keyup", stopControl);
     }

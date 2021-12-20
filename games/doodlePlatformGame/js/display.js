@@ -73,7 +73,7 @@ class Thing {
     this.bottom = thingPos.bottom + 15;
     this.left = thingPos.left + 15; //grid width - platform width
     this.visual = document.createElement("div");
-
+//depending on a random number it will create a platform with or without special things
     let visual = this.visual;
     switch (num) {
       case 1:
@@ -128,6 +128,7 @@ function countScore(score) {
 
 //final score
 function displayFinalScreen() {
+  //Calculation of final score
   if (score === 0) {
     minute = 0;
     seconds = 0;
@@ -150,6 +151,7 @@ function displayFinalScreen() {
   home.style.animation = "appear 0.4s";
   home.addEventListener("click", homePage);
 
+  //displaying all all ciclos
   let contText = document.createElement("div");
   let cycle_title = document.createElement("h1");
   let cycle_descripion = document.createElement("p");
@@ -168,6 +170,7 @@ function displayFinalScreen() {
   cycle_descripion.style.fontWeight = "100";
   contText.appendChild(cycle_descripion);
 
+  //displaying all job oportunities
   for (let index = 0; index < job_oportunities.length; index++) {
     let job_title = document.createElement("h1");
     let job_descripion = document.createElement("p");
@@ -192,6 +195,7 @@ function displayFinalScreen() {
 ////////////////////////////
 
 function timedCount() {
+  //start time
   time = setTimeout(timedCount, 1000);
   if (seconds > 0) {
     seconds -= 1;
@@ -201,7 +205,7 @@ function timedCount() {
   } else if (minute == 0 && seconds == 0) {
     gameOver();
   }
-
+//format time to 00:00
   let formattedMinute = ("0" + minute).slice(-2);
   let formattedSeconds = ("0" + seconds).slice(-2);
   document.getElementById("time").innerHTML =
@@ -216,14 +220,15 @@ function homePage() {
   //stops doodler + platform
 
   isGameOver = false;
-
+//delete all children
   while (GRID.firstChild) {
     GRID.removeChild(GRID.firstChild);
   }
-
+//time and score invisible
   document.getElementById("time").innerHTML = " ";
   document.getElementById("score").innerHTML = " ";
 
+//creation of homapge btn (jugar, instrucció, ranking)
   let box = document.createElement("div");
   let play = document.createElement("button");
   let instruction = document.createElement("button");
@@ -293,10 +298,11 @@ function displayInstruccions() {
 }
 
 function displayRank() {
+  //delete all children
   while (GRID.firstChild) {
     GRID.removeChild(GRID.firstChild);
   }
-
+//create table for ranking
   let table = document.createElement("table");
   let home = document.createElement("button");
 
