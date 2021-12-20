@@ -131,6 +131,7 @@ function insert_user_info(email, firstname, lastname, nickname) {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data.data)
     })
     .catch((error) => console.error(error));
 }
