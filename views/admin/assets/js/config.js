@@ -1,3 +1,1 @@
-const CONFIG = {
-    "url": `${window.location.protocol}//${window.location.hostname}/OpenHouseJocs/views/admin`
-}
+const BASE_URL = "http://localhost/OpenHouseJocs/views/admin";

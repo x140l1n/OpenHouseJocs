@@ -72,7 +72,7 @@ function init(e) {
       form.querySelector("button[type='submit']").disabled = true;
 
       //Login and process the promise.
-      login(e.target).then(function (response) {
+      post("/user/login", new FormData(e.target)).then(function (response) {
         //Remove login animation and disable button submit.
         form.querySelector("button[type='submit']").innerHTML = "Acceder";
         form.querySelector("button[type='submit']").disabled = false;
@@ -83,7 +83,7 @@ function init(e) {
           form.querySelector("#message-error").classList.add("invisible");
           form.querySelector("#message-error").innerText = "Error";
 
-          window.location.href = `${CONFIG.url}/views/dashboard.php`;
+          window.location.href = `${BASE_URL}/views/dashboard.php`;
         } else {
           //Display message error.
           form.querySelector("#message-error").classList.remove("invisible");
@@ -97,20 +97,4 @@ function init(e) {
       });
     }
   });
-}
-
-/**
- * Send the data form to api to check if the login is correct. 
- * @param {DOMElement} form The form to serialize values.
- * @return {Promise<Response>} Return the response.
- */
-async function login(form) {
-    return await fetch(`${CONFIG.url}/user/login`, {
-        method: 'POST',
-        header: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: new FormData(form)
-    });
 }

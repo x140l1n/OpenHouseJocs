@@ -1,10 +1,14 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
-//Import the librarys.
-require_once("../libs/response.php");
+//Import the libraries and database.
 require_once("../config/constants.php");
+require_once("../libs/response.php");
 require_once("../models/database.php");
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 iniErrorLog();
 
@@ -48,22 +52,50 @@ if ($url) {
         $controller = new $controller;
 
         if (method_exists($controller, $method)) {
-            if ($params_exists) {
-                $params_array = [];
 
-                for ($i = 0; $i < sizeof($url) - 2; $i++) {
-                    array_push($params_array, $url[$i + 2]);
+            try {
+                //Check if the params is json.
+                process_params_json();
+
+                if ($params_exists) {
+                    $params_array = [];
+
+                    for ($i = 0; $i < sizeof($url) - 2; $i++) {
+                        array_push($params_array, $url[$i + 2]);
+                    }
+                    $controller->{$method}($params_array);
+                } else {
+                    $controller->{$method}();
                 }
-                $controller->{$method}($params_array);
-            } else {
-                $controller->{$method}();
+            } catch (Exception $e) {
+                Response::send(null, Response::HTTP_NOT_FOUND, "Method '$method' not found.", "Error ocurred: " . $e->getMessage());
             }
         } else {
-            Response::send(array("msg" => "Method '$method' not found."), Response::HTTP_NOT_FOUND);
+            Response::send(null, Response::HTTP_NOT_FOUND, "Method '$method' not found.");
         }
+    } else {
+        Response::send("404 Página no encontrada.", Response::HTTP_NOT_FOUND, "Controller not found.");
     }
 } else {
-    Response::send(array("msg" => "URL not specified."), Response::HTTP_NOT_FOUND);
+    Response::send(null, Response::HTTP_NOT_FOUND, "URL not specified.");
+}
+
+
+/**
+ * Create post values from json.
+ */
+function process_params_json()
+{
+    $json = file_get_contents('php://input');
+
+    if ($json !== "") {
+        $posts = json_decode($json);
+
+        //Create post values.
+        foreach ($posts as $key => $value) {
+            $_POST[$key] = $value;
+        }
+    }
 }
 
 /**
@@ -71,7 +103,7 @@ if ($url) {
  */
 function iniErrorLog()
 {
-    error_reporting(E_ALL); //Error/Exception engine, always use E_ALL
+    error_reporting(E_ERROR | E_PARSE); //Error/Exception engine, always use E_ALL
 
     ini_set('ignore_repeated_errors', TRUE); //Always use TRUE
 

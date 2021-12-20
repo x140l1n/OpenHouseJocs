@@ -46,4 +46,57 @@ class User
             Response::send(array("msg" => "Missing params => [email, password]."), Response::HTTP_UNPROCESSABLE_ENTITY, "Missing params => [email, password]");
         }
     }
+
+    /**
+     * Get last students.
+     */
+    function lastStudents() {
+        if (isset($_POST["limit"])) {
+            try {
+                $limit = $_POST["limit"];
+
+                $result = $this->model->lastStudents($limit);
+
+                Response::send(array("msg" => "Ok.", "data" => $result), Response::HTTP_OK);
+            } catch (PDOException $e) {
+                Response::send(array("msg" => "Error ocurred: " . $e->getMessage()), Response::HTTP_INTERNAL_SERVER_ERROR, "Error ocurred: " . $e->getMessage());
+            }
+        } else {
+            Response::send(array("msg" => "Missing params => [limit]."), Response::HTTP_UNPROCESSABLE_ENTITY, "Missing params => [limit]");
+        }
+    }
+
+    /**
+     * Get users with filters.
+     */
+    function all() {
+        if (isset($_POST["search"]) && isset($_POST["search_by"]) && isset($_POST["id_rol"])) {
+            try {
+                $result = $this->model->all($_POST["search"], $_POST["search_by"], $_POST["id_rol"]);
+
+                Response::send(array("msg" => "Ok.", "data" => $result), Response::HTTP_OK);
+            } catch (PDOException $e) {
+                Response::send(array("msg" => "Error ocurred: " . $e->getMessage()), Response::HTTP_INTERNAL_SERVER_ERROR, "Error ocurred: " . $e->getMessage());
+            }
+        } else {
+            Response::send(array("msg" => "Missing params => [search, search_by, id_rol]."), Response::HTTP_UNPROCESSABLE_ENTITY, "Missing params => [search, search_by, id_rol]");
+        }
+    }
+
+    /**
+     * Delete user by id.
+     */
+    function delete() {
+        if (isset($_POST["id"])) {
+            try {
+                $result = $this->model->delete($_POST["id"]);
+
+                Response::send(array("msg" => "Ok.", "data" => $result), Response::HTTP_OK);
+            } catch (PDOException $e) {
+                Response::send(array("msg" => "Error ocurred: " . $e->getMessage()), Response::HTTP_INTERNAL_SERVER_ERROR, "Error ocurred: " . $e->getMessage());
+            }
+        } else {
+            Response::send(array("msg" => "Missing params => [id]."), Response::HTTP_UNPROCESSABLE_ENTITY, "Missing params => [id]");
+        }
+    }
 }

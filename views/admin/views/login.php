@@ -13,7 +13,7 @@
 
 <head>
     <?php 
-        //Import the head.
+        //Import the header.
         require("partials/head.php");
     ?>
     <title>Login - Panel Administrador OpenHouseJocs</title>
@@ -67,9 +67,10 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="../assets/js/index.js"></script>
-    <script type="text/javascript" src="../assets/js/config.js"></script>
-    <script type="text/javascript" src="../assets/js/functions.js"></script>
+    <?php
+        //Import the scripts js.
+        require("partials/scripts.php");
+    ?>
     <script type="text/javascript" src="../assets/js/login.js"></script>
 </body>
 

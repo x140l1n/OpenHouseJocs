@@ -14,8 +14,9 @@ body {
   background-color: #E4ECEF; }
 
 .container-wrapper {
+  margin: 0px;
   padding: 0px;
-  padding-top: 66px; }
+  margin-top: 66px; }
 
 .logo-cep {
   width: 50px;
@@ -32,13 +33,12 @@ body {
 .bg-turquoise {
   background-color: #40E0D0; }
 
+.table-340 {
+  height: 340px; }
+
 .card-480 {
   height: 480px;
   overflow-y: auto; }
-
-.table thead {
-  position: sticky;
-  top: 0; }
 
 .login-background {
   position: relative;
