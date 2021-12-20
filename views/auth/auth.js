@@ -77,7 +77,6 @@ function reviewCheckBox() {
   for (let j = 0; j < objKeys.length; j++) {
     if (document.getElementById(objValues[j].id).checked) {
       checkedCB.push(objValues[j]);
-      console.log(checkedCB);
       itChecked = true;
     }
   }
@@ -92,7 +91,6 @@ function reviewCheckBoxCycle() {
   for (let j = 0; j < objKeys.length; j++) {
     if (document.getElementById(objValues[j].id).checked) {
       checkedCBCycles.push(objValues[j]);
-      console.log(checkedCBCycles);
       itChecked = true;
     }
   }
@@ -153,8 +151,8 @@ function submitForm() {
 
 //this will check if an input is empty or not
 function checkInput() {
-  console.log(checkedCB.length)
-  console.log(checkedCBCycles.length);
+  console.log(checkedCB)
+  console.log(checkedCBCycles);
   if (userExist) {
     if ((email.value !== null || email.value !== "") && checkedCB.length != 0) {
       submitForm();
@@ -164,8 +162,8 @@ function checkInput() {
     (nameInput.value !== null || nameInput.value !== "") &&
     (surNameInput.value !== null || surNameInput.value !== "") &&
     (nicknameInput.value !== null || nicknameInput.value !== "") &&
-    checkedCB.length != 0 //&&
-    //checkedCBCycles.length !== 0
+    checkedCB.length != 0 &&
+    checkedCBCycles.length !== 0
   ) {
     submitForm();
   }

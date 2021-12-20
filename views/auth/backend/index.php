@@ -66,7 +66,7 @@ function get_all_users() {
 
     try {
         $db = new Database();
-        $statement = $db->connect()->prepare("SELECT u.email, u.firstname, u.lastname, u.id_rol
+        $statement = $db->connect()->prepare("SELECT u.id, u.email, u.firstname, u.lastname, u.id_rol
                                                   FROM user u");
         $statement->execute();
         $users = $statement->fetchAll(PDO::FETCH_ASSOC);
