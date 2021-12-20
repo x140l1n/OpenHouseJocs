@@ -44,17 +44,16 @@
                         <div class="row col">
                             <form name="form-login">
                                 <div class="form-floating mb-3">
-                                    <input type="input-email" class="form-control form-control-border" id="input-email" name="email" placeholder="Email" error-label="#email-error" value="xjinl67@cepnet.net" required>
-                                    <label for="email">Email</label>
+                                    <input type="input-email" class="form-control form-control-border" id="input-email" name="email" placeholder="Email" error-label="#email-error" required>
+                                    <label for="input-email">Email</label>
                                     <span id="email-error" class="form-text text-danger invisible">Error.</span>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="form-floating flex-grow-1">
-                                        <input type="password" class="form-control form-control-border input-password" id="input-password" name="password" placeholder="Contraseña" error-label="#password-error" required>
+                                        <input type="password" class="form-control form-control-border input-password" id="input-password" name="password" placeholder="Contraseña" required>
                                         <label for="input-password">Contraseña</label>
                                     </div>
-                                    <span class="input-group-text" id="toggle-password" input-toggle="#input-password"><i class="fas fa-eye fa-fw"></i></span>
-                                    <span id="password-error" class="form-text text-danger invisible w-100">Error.</span>
+                                    <span class="input-group-text toggle-password" name="toggle-password" input-toggle="#input-password"><i class="fas fa-eye fa-fw"></i></span>
                                 </div>
                                 <span id="message-error" class="fw-bold text-danger invisible">Ha ocurrido un error inesperado.</span>
                                 <div class="d-grid mt-3">

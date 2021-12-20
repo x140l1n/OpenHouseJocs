@@ -40,7 +40,7 @@ if ($_SESSION["id_rol"] != 1 && $_SESSION["id_rol"] != 2) {
                 <span class="text-uppercase fw-bold fs-4">Usuarios</span>
                 <div>
                     <button class="btn btn-secondary text-uppercase" id="btn-refresh"><i class="fas fa-sync me-2 fa-fw"></i>Recargar</button>
-                    <button class="btn btn-success text-uppercase text-light"><i class="fas fa-plus me-2 fa-fw"></i>Nuevo usuario</button>
+                    <button class="btn btn-success text-uppercase text-light" id="btn-new-user"><i class="fas fa-plus me-2 fa-fw"></i>Nuevo usuario</button>
                 </div>
             </div>
             <small>Ver usuarios administradores y estudiantes</small>
@@ -101,13 +101,116 @@ if ($_SESSION["id_rol"] != 1 && $_SESSION["id_rol"] != 2) {
         </main>
     </div>
     <div class="modal fade" id="modal-user" tabindex="-1" aria-labelledby="user-label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-secondary">
-                <div class="modal-header text-light border-0">
-                    <h5 class="modal-title text-uppercase fw-bold" id="user-label">Modificar usuario</h5>
-                    <button type="button" class="btn btn-sm btn-transparent" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times text-light fa-2x fa-fw"></i></button>
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-secondary text-dark">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-uppercase fw-bold" id="user-label"></h5>
+                    <button type="button" class="btn btn-sm btn-transparent" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times fa-2x fa-fw"></i></button>
                 </div>
-                <div class="modal-body text-light">
+                <div class="modal-body">
+                    <form id="form-user" data-id-user="-1">
+                        <div class="row">
+                            <div class="col-lg-4 mb-3">
+                                <div class="form-floating">
+                                    <input type="input-nickname" class="form-control form-control-border" id="input-nickname" name="nickname" placeholder="Nickname" required>
+                                    <label for="input-nickname">Nickname *</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-3">
+                                <div class="form-floating">
+                                    <input type="input-firstname" class="form-control form-control-border" id="input-firstname" name="firstname" placeholder="Nombre" required>
+                                    <label for="input-firstname">Nombre *</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-3">
+                                <div class="form-floating">
+                                    <input type="input-lastname" class="form-control form-control-border" id="input-lastname" name="lastname" placeholder="Apellidos" required>
+                                    <label for="input-lastname">Apellidos *</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 mb-3">
+                                <div class="form-floating">
+                                    <input type="input-email" class="form-control form-control-border" id="input-email" name="email" error-label="#email-error" placeholder="Email" required>
+                                    <label for="input-email">Email *</label>
+                                    <span id="email-error" class="form-text text-danger invisible">Error.</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="form-floating">
+                                    <select class="form-select form-control-border" id="select-rols-modal" name="rol" aria-label="Rol" required>
+                                        <option value="0" selected>Selecciona un rol...</option>
+                                    </select>
+                                    <label for="select-rols">Rol *</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 mb-3">
+                                <div class="input-group">
+                                    <div class="form-floating flex-grow-1">
+                                        <input type="password" class="form-control form-control-border input-password" id="input-password" name="password" placeholder="Contraseña" required>
+                                        <label for="input-password">Contraseña *</label>
+                                    </div>
+                                    <span class="input-group-text toggle-password" name="toggle-password" input-toggle="#input-password"><i class="fas fa-eye fa-fw"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="input-group">
+                                    <div class="form-floating flex-grow-1">
+                                        <input type="password" class="form-control form-control-border input-password-confirm" id="input-password-confirm" name="password" placeholder="Contraseña" required>
+                                        <label for="input-password-confirm">Confirmar contraseña *</label>
+                                    </div>
+                                    <span class="input-group-text toggle-password" name="toggle-password" input-toggle="#input-password-confirm"><i class="fas fa-eye fa-fw"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 d-grid mt-3">
+                                <button type="submit" class="btn btn-primary" id="btn-submit-user">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-password" tabindex="-1" aria-labelledby="password-label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-secondary text-dark">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-uppercase fw-bold" id="password-label">Cambiar contraseña</h5>
+                    <button type="button" class="btn btn-sm btn-transparent" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times fa-2x fa-fw"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-password" data-id-user="-1">
+                        <div class="row">
+                            <div class="col-lg-6 mb-3">
+                                <div class="input-group">
+                                    <div class="form-floating flex-grow-1">
+                                        <input type="password" class="form-control form-control-border input-password" id="input-password-change" name="password" placeholder="Contraseña" required>
+                                        <label for="input-password-change">Contraseña *</label>
+                                    </div>
+                                    <span class="input-group-text toggle-password" name="toggle-password" input-toggle="#input-password-change"><i class="fas fa-eye fa-fw"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="input-group">
+                                    <div class="form-floating flex-grow-1">
+                                        <input type="password" class="form-control form-control-border input-password-confirm" id="input-password-confirm-change" name="password" placeholder="Contraseña" required>
+                                        <label for="input-password-confirm-change">Confirmar contraseña *</label>
+                                    </div>
+                                    <span class="input-group-text toggle-password" name="toggle-password" input-toggle="#input-password-confirm-change"><i class="fas fa-eye fa-fw"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 d-grid mt-3">
+                                <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -128,7 +231,7 @@ if ($_SESSION["id_rol"] != 1 && $_SESSION["id_rol"] != 2) {
             </div>
         </div>
     </div>
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11; height: 150px;">
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999; height: 150px;">
         <div id="toast-noti" class="toast hide h-100" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
                 <strong class="me-auto">Mensaje</strong>
@@ -145,4 +248,4 @@ if ($_SESSION["id_rol"] != 1 && $_SESSION["id_rol"] != 2) {
     <script type="text/javascript" src="../assets/js/users.js"></script>
 </body>
 
-</html>
+</html> 

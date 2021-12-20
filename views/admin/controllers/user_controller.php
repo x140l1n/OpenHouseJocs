@@ -84,6 +84,70 @@ class User
     }
 
     /**
+     * Add new user.
+     */
+    function add() {
+        if (isset($_POST["nickname"]) && isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["email"]) && isset($_POST["rol"]) && isset($_POST["password"])) {
+            try {
+
+                if (!$this->model->checkExistUser($_POST["nickname"], $_POST["email"])) {
+                    $_POST["password"] = password_hash($_POST["password"], PASSWORD_BCRYPT);
+                    $result = $this->model->add($_POST["nickname"], $_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["rol"], $_POST["password"]);    
+                    
+                    Response::send(array("msg" => "Ok.", "data" => $result), Response::HTTP_OK);
+                } else {
+                    Response::send(array("msg" => "Ok.", "data" => "-1"), Response::HTTP_OK);
+                }
+                
+            } catch (PDOException $e) {
+                Response::send(array("msg" => "Error ocurred: " . $e->getMessage()), Response::HTTP_INTERNAL_SERVER_ERROR, "Error ocurred: " . $e->getMessage());
+            }
+        } else {
+            Response::send(array("msg" => "Missing params => [nickname, firstname, lastname, email, rol, password]."), Response::HTTP_UNPROCESSABLE_ENTITY, "Missing params => [nickname, firstname, lastname, email, rol, password]");
+        }
+    }
+
+    /**
+     * Update existing user.
+     */
+    function update() {
+        if (isset($_POST["nickname"]) && isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["email"]) && isset($_POST["rol"]) && isset($_POST["id"])) {
+            try {
+
+                if (!$this->model->checkExistUserExceptId($_POST["id"], $_POST["nickname"], $_POST["email"])) {
+                    $result = $this->model->update($_POST["id"], $_POST["nickname"], $_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["rol"]);    
+                    
+                    Response::send(array("msg" => "Ok.", "data" => $result), Response::HTTP_OK);
+                } else {
+                    Response::send(array("msg" => "Ok.", "data" => "-1"), Response::HTTP_OK);
+                }
+            } catch (PDOException $e) {
+                Response::send(array("msg" => "Error ocurred: " . $e->getMessage()), Response::HTTP_INTERNAL_SERVER_ERROR, "Error ocurred: " . $e->getMessage());
+            }
+        } else {
+            Response::send(array("msg" => "Missing params => [nickname, firstname, lastname, email, rol, id]."), Response::HTTP_UNPROCESSABLE_ENTITY, "Missing params => [nickname, firstname, lastname, email, rol, id]");
+        }
+    }
+
+    /**
+     * Update password of existing user.
+     */
+    function changepassword() {
+        if (isset($_POST["password"]) && isset($_POST["id"])) {
+            try {
+                $_POST["password"] = password_hash($_POST["password"], PASSWORD_BCRYPT);
+                $result = $this->model->change_password($_POST["id"], $_POST["password"]);    
+                
+                Response::send(array("msg" => "Ok.", "data" => $result), Response::HTTP_OK);
+            } catch (PDOException $e) {
+                Response::send(array("msg" => "Error ocurred: " . $e->getMessage()), Response::HTTP_INTERNAL_SERVER_ERROR, "Error ocurred: " . $e->getMessage());
+            }
+        } else {
+            Response::send(array("msg" => "Missing params => [nickname, firstname, lastname, email, rol, id]."), Response::HTTP_UNPROCESSABLE_ENTITY, "Missing params => [nickname, firstname, lastname, email, rol, id]");
+        }
+    }
+
+    /**
      * Delete user by id.
      */
     function delete() {
