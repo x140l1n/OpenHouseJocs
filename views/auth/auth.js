@@ -18,7 +18,7 @@ let userInfo;
 let family;
 let cycles;
 let checkedCB = [];
-let checkedCBCycles;
+let checkedCBCycles = [];
 let userExist = true;
 
 //this will validate inputs and check if email pattern is correct
@@ -154,6 +154,8 @@ function submitForm() {
 
 //this will check if an input is empty or not
 function checkInput() {
+  console.log(checkedCB.length)
+  console.log(checkedCBCycles.length);
   if (userExist) {
     if ((email.value !== null || email.value !== "") && checkedCB.length != 0) {
       submitForm();
@@ -163,8 +165,8 @@ function checkInput() {
     (nameInput.value !== null || nameInput.value !== "") &&
     (surNameInput.value !== null || surNameInput.value !== "") &&
     (nicknameInput.value !== null || nicknameInput.value !== "") &&
-    checkedCB.length != 0 &&
-    checkedCBCycles.length !== 0
+    checkedCB.length != 0 //&&
+    //checkedCBCycles.length !== 0
   ) {
     submitForm();
   }
