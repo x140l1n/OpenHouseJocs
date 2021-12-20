@@ -1,0 +1,76 @@
+/***** Own variables bootstrap *****/
+/*SWITCH*/
+$form-check-input-checked-color: #FA4301
+$form-check-input-checked-bg-color: #FA4301
+$form-check-input-checked-border-color: #FA4301
+
+$form-check-input-bg: #000000
+$form-switch-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/%3e%3c/svg%3e")
+$form-switch-checked-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/%3e%3c/svg%3e")
+
+$form-switch-checked-color: #FA4301
+$form-switch-checked-bg-color: #FA4301
+$form-switch-checked-border-color: #FA4301
+
+$form-switch-color: #000000
+$form-switch-bg-color: #000000
+$form-switch-border-color: #000000
+/*END SWITCH*/
+/***** End Own variables bootstrap *****/
+
+@import "../../UI/bootstrap-5.0.2/scss/bootstrap.scss"
+@import "../../UI/fontawesome-free-5.15.4-web/css/fontawesome.css"
+@import "../../UI/fontawesome-free-5.15.4-web/css/solid.css"
+@import "../../UI/fontawesome-free-5.15.4-web/css/regular.css"
+@import "../../UI/fontawesome-free-5.15.4-web/css/brands.css"
+@import "../../components/navbar/navbar.css"
+@import "mixins"
+    
+/*SWITCH*/
+.form-switch.form-switch-sm
+    @include switch()
+
+.form-switch.form-switch-md
+    @include switch('md')
+
+.form-switch.form-switch-lg
+    @include switch('lg')
+
+.form-switch.form-switch-xl
+    @include switch('xl')
+
+.form-switch > .form-switch-wrap
+    display: inline-block
+
+    i
+        position: absolute
+        left: 60%
+        top: 25%
+        font-size: 0.78rem
+
+        &::before
+            content: "\f186"
+
+.form-switch > .form-switch-wrap > .form-check-input
+    background-color: $form-switch-color
+    border-color: $form-switch-border-color
+    color: $form-switch-color
+
+.form-switch > .form-switch-wrap > .form-check-input:checked
+    background-color: $form-switch-checked-color
+    border-color: $form-switch-checked-border-color
+    color: $form-switch-checked-color
+
+    &+i
+        left: 15%
+        font-size: 0.78rem
+
+        &::before
+            content: "\f185"
+
+.form-switch > .form-switch-wrap > .form-check-input
+    &:focus
+        color: #fff
+        outline: none
+        box-shadow: none
+/*END SWITCH*/

@@ -88,7 +88,6 @@ function reviewCheckBox() {
 function reviewCheckBoxCycle() {
   let objKeys = Object.keys(cycles);
   let objValues = Object.values(cycles);
-  checkedCBCycles = [];
 
   for (let j = 0; j < objKeys.length; j++) {
     if (document.getElementById(objValues[j].id).checked) {
