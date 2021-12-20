@@ -136,15 +136,17 @@ body
 /*END SWITCH*/
 
 /***** INPUT *****/
-input.form-control.form-control-border
+input.form-control.form-control-border,
+select.form-select.form-control-border
     border: 2px solid $border-input-color
 
-input.form-control.form-control-border.input-password
+input.form-control.form-control-border.input-password,
+input.form-control.form-control-border.input-password-confirm
     border-right: 0px !important
     border-top-right-radius: 0px
     border-bottom-right-radius: 0px
 
-#toggle-password
+.toggle-password
     border-top: 2px solid $border-input-color
     border-right: 2px solid $border-input-color
     border-bottom: 2px solid $border-input-color
@@ -176,4 +178,10 @@ aside
 
 main 
     margin-left: 300px
+
+::-webkit-scrollbar 
+    width: 10px
+
+::-webkit-scrollbar-thumb 
+    background: grey
 /***** End SIDEBAR *****/

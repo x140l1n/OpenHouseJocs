@@ -1,19 +1,19 @@
 document.addEventListener("DOMContentLoaded", init);
 
 const DOODLE_JUMP_MODAL = new bootstrap.Modal(document.querySelector("#modal-doodle-jump"), {
-    keyboard: false,
+    backdrop: 'static', keyboard: false,
 });
 
 const SNAKE_MODAL = new bootstrap.Modal(document.querySelector("#modal-snake"), {
-    keyboard: false,
+    backdrop: 'static', keyboard: false,
 });
 
 const SPACE_INVADERS_MODAL = new bootstrap.Modal(document.querySelector("#modal-space-invaders"), {
-    keyboard: false,
+    backdrop: 'static', keyboard: false,
 });
 
 const ARKANOID_MODAL = new bootstrap.Modal(document.querySelector("#modal-arkanoid"), {
-    keyboard: false,
+    backdrop: 'static', keyboard: false,
 });
 
 let timeout_search = null;
@@ -300,6 +300,6 @@ function render_table_ranking(tbody, data) {
 
         tbody.innerHTML = _tbody;
     } else {
-        tbody.innerHTML = "<tr><td colspan='3'>No hay registros con estos parámetros.</td></tr>";
+        tbody.innerHTML = `<tr><td colspan='${tbody.parentElement.rows[0].cells.length}'>No hay registros con estos parámetros.</td></tr>`;
     }
 }

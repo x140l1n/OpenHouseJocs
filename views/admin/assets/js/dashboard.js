@@ -38,6 +38,8 @@ function loadAllData() {
   post("/user/lastStudents", {limit: 20}).then((response) => {
     let data = response.data.data;
 
+    document.querySelector("#total-students").innerText = data.length;
+    
     if (data.length > 0) {
         let tbody = "";
                 
@@ -53,6 +55,8 @@ function loadAllData() {
         });
 
         document.querySelector("#table-students > tbody").innerHTML = tbody;
+    } else {
+      document.querySelector("#table-students > tbody").innerHTML = "<tr><td colspan='6'>No hay registros con estos parámetros.</td></tr>";
     }
   });
 
