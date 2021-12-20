@@ -144,9 +144,9 @@ function submitForm() {
       surNameInput.value,
       nicknameInput.value
     );
-    window.location.href = "../gameSelect/gameSelect.html";
+    window.location.href = "../gameSelect/gameSelect.php";
   } else if (userExist) {
-    window.location.href = "../gameSelect/gameSelect.html";
+    window.location.href = "../gameSelect/gameSelect.php";
   } else {
     alert("ERROR");
   }
