@@ -24,7 +24,6 @@ let userExist = true;
 //this will validate inputs and check if email pattern is correct
 function validateInput(inputId) {
   let found = false;
-  let i = 0;
   let objKey = Object.keys(userInfo);
   let objValue = Object.values(userInfo);
 
@@ -46,34 +45,28 @@ function validateInput(inputId) {
     } else if (emailTest == true) {
       inputId.setAttribute("class", "form-control is-valid");
 
-      do {
-        if (inputId.value !== objValue[i].email) {
-          nameDiv.style.display = "block";
-          surNameDiv.style.display = "block";
-          cicloDiv.style.display = "block";
-          nicknameDiv.style.display = "block";
-          found = true;
-          userExist = false;
-        } else if (inputId.value === objValue[i].email) {
+      for (let i = 0; i < objKey.length; i++) {
+        if (inputId.value === objValue[i].email) {
           nameDiv.style.display = "none";
           surNameDiv.style.display = "none";
           cicloDiv.style.display = "none";
           nicknameDiv.style.display = "none";
-          found = true;
           userExist = true;
-        } else if(i == objKey){
-          found = false;
-        } else {
-          i++;
+          found = true;
         }
         
-      } while (!found);
+      }
 
+      if (found === false) {
+         nameDiv.style.display = "block";
+         surNameDiv.style.display = "block";
+         cicloDiv.style.display = "block";
+        nicknameDiv.style.display = "block";
+        userExist = false;
+      }
     }
   }
 }
-
-
 
 //this will check and push checkbox selected value in array;
 function reviewCheckBox() {
@@ -108,7 +101,6 @@ function reviewCheckBoxCycle() {
 
 // To  create dropdown and populate
 function myDropdown() {
-
   let parent = document.getElementById("dropdownCicloButton");
   while (parent.firstChild) {
     parent.removeChild(parent.lastChild);
@@ -120,26 +112,24 @@ function myDropdown() {
       let objValues = Object.values(cycles);
 
       if (checkedCB[i].id === objValues[j].id_family) {
+        let list = document.createElement("li");
+        let input = document.createElement("input");
+        let label = document.createElement("label");
+        input.type = "checkbox";
+        input.setAttribute("value", objValues[j].name);
+        input.setAttribute("class", "m-2");
+        input.setAttribute("id", objValues[j].id);
+        input.setAttribute("name", objValues[j].name);
+        //input.setAttribute("onchange", "reviewCheckBoxCycle()");
 
-          let list = document.createElement("li");
-          let input = document.createElement("input");
-          let label = document.createElement("label");
-          input.type = "checkbox";
-          input.setAttribute("value", objValues[j].name);
-          input.setAttribute("class", "m-2");
-          input.setAttribute("id", objValues[j].id);
-          input.setAttribute("name", objValues[j].name);
-          //input.setAttribute("onchange", "reviewCheckBoxCycle()");
+        label.setAttribute("for", objValues[j].id);
+        label.textContent = objValues[j].name;
 
-          label.setAttribute("for", objValues[j].id);
-          label.textContent = objValues[j].name;
+        list.setAttribute("class", "mx-2 py-1");
 
-          list.setAttribute("class", "mx-2 py-1");
-
-          parent.appendChild(list);
-          list.appendChild(input);
-          list.appendChild(label);
-        
+        parent.appendChild(list);
+        list.appendChild(input);
+        list.appendChild(label);
       }
     }
   }
@@ -147,12 +137,16 @@ function myDropdown() {
 
 //this is when form is sent and will save user with it's information.
 function submitForm() {
-
   if (!userExist) {
-    insert_user_info(email.value, nameInput.value, surNameInput.value, nicknameInput.value);
+    insert_user_info(
+      email.value,
+      nameInput.value,
+      surNameInput.value,
+      nicknameInput.value
+    );
     window.location.href = "../gameSelect/gameSelect.html";
-  } else if(userExist){
-     window.location.href = "../gameSelect/gameSelect.html";
+  } else if (userExist) {
+    window.location.href = "../gameSelect/gameSelect.html";
   } else {
     alert("ERROR");
   }
@@ -160,11 +154,8 @@ function submitForm() {
 
 //this will check if an input is empty or not
 function checkInput() {
-  if (email.value == emailUser) {
-    if (
-      (email.value !== null || email.value !== "") &&
-      myDropdownF.checked !== ""
-    ) {
+  if (userExist) {
+    if ((email.value !== null || email.value !== "") && checkedCB.length != 0) {
       submitForm();
     }
   } else if (
@@ -172,8 +163,8 @@ function checkInput() {
     (nameInput.value !== null || nameInput.value !== "") &&
     (surNameInput.value !== null || surNameInput.value !== "") &&
     (nicknameInput.value !== null || nicknameInput.value !== "") &&
-    myDropdownF.checked !== "" &&
-    myDropdownC.checked !== ""
+    checkedCB.length != 0 &&
+    checkedCBCycles.length !== 0
   ) {
     submitForm();
   }
@@ -188,4 +179,5 @@ window.onload = function () {
   surNameDiv.style.display = "none";
   cicloDiv.style.display = "none";
   nicknameDiv.style.display = "none";
+  //document.getElementById("submitBtn").disabled = true;
 };

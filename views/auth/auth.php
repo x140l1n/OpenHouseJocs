@@ -95,7 +95,7 @@
                             </div>
 
                             <div class="d-grid mt-3">
-                                <button class="btn btn-lg btn-primary text-uppercase mb-2" type="button" value="submit" id="submitBtn" onclick="submitForm()">
+                                <button class="btn btn-lg btn-primary text-uppercase mb-2" type="button" value="submit" id="submitBtn" onclick="checkInput()">
                                     Enviar
                                 </button>
                             </div>
