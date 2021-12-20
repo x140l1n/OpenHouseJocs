@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="footer.css">
-    <title>Footer</title>
-</head>
-<body>
-<footer class="bg-light text-center text-white">
+<footer id="footer" class="mt-auto footer bg-light text-center text-white">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
     <!-- Section: Social media -->
@@ -17,65 +7,59 @@
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #3b5998;"
-        href="#!"
+        href="https://es-es.facebook.com/politecnics/"
+        target="_blank"
         role="button"
-        ><i class="fab fa-facebook-f"></i
+        ><i class="fab fa-facebook-f fa-fw"></i
       ></a>
 
       <!-- Twitter -->
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #55acee;"
-        href="#!"
+        href="https://twitter.com/CE_Politecnics"
+        target="_blank"
         role="button"
-        ><i class="fab fa-twitter"></i
+        ><i class="fab fa-twitter fa-fw"></i
       ></a>
 
-      <!-- Google -->
+      <!-- Youtube -->
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #dd4b39;"
-        href="#!"
+        href="https://www.youtube.com/user/CEPbcn"
+        target="_blank"
         role="button"
-        ><i class="fab fa-google"></i
+        ><i class="fab fa-youtube fa-fw"></i
       ></a>
 
       <!-- Instagram -->
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #ac2bac;"
-        href="#!"
+        target="_blank"
+        href="https://www.instagram.com/ce_politecnics/"
         role="button"
-        ><i class="fab fa-instagram"></i
+        ><i class="fab fa-instagram fa-fw"></i
       ></a>
 
       <!-- Linkedin -->
       <a
         class="btn btn-primary btn-floating m-1"
         style="background-color: #0082ca;"
-        href="#!"
+        href="https://www.linkedin.com/school/politecnics/"
+        target="_blank"
         role="button"
-        ><i class="fab fa-linkedin-in"></i
+        ><i class="fab fa-linkedin-in fa-fw"></i
       ></a>
-      <!-- Github -->
-      <a
-        class="btn btn-primary btn-floating m-1"
-        style="background-color: #333333;"
-        href="#!"
-        role="button"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
     <!-- Section: Social media -->
   </div>
   <!-- Grid container -->
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright:
-    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    © 2021 Copyright:
+    <a class="text-white" href="https://politecnics.barcelona" target="_blank">Politècnics Barcelona</a>
   </div>
   <!-- Copyright -->
 </footer>
-</body>
-</html>
