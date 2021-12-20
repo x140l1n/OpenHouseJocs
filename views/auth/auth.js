@@ -150,9 +150,9 @@ function submitForm() {
 
   if (!userExist) {
     insert_user_info(email.value, nameInput.value, surNameInput.value, nicknameInput.value);
-    //window.location.href = "views/gameSelect/gameSelect.html";
+    window.location.href = "../gameSelect/gameSelect.html";
   } else if(userExist){
-     window.location.href = "views/gameSelect/gameSelect.html";
+     window.location.href = "../gameSelect/gameSelect.html";
   } else {
     alert("ERROR");
   }
