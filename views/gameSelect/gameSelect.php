@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +10,9 @@
     <link rel="stylesheet" href="gameSelect.css">
 
 </head>
-<body>    
-<?php
+
+<body>
+    <?php
     //navbar global component
     include __DIR__ . '../../../components/navbar/navbar.php';
     ?>
@@ -31,19 +33,26 @@
         <div class="col-sm-12 col-lg-3 gSelect_img">
             <img class="gSelect_img" src="../../media/gameSelect/arkanoid_gif.gif" alt="">
         </div>
-        <div class="col-sm-12 col-lg-3 gSelect_img">
-            <img class="gSelect_img" src="../../media/gameSelect/platform_gif.gif" alt="">
-        </div>
-        <div class="col-sm-12 col-lg-3 gSelect_img">
-            <img class="gSelect_img" src="../../media/gameSelect/snake_gif.gif" alt="">
-        </div>
+
         <div class="col-sm-12 col-lg-3 gSelect_img">
             <img class="gSelect_img" src="../../media/gameSelect/space_gif.gif">
         </div>
+
+        <div class="col-sm-12 col-lg-3 gSelect_img">
+            <img class="gSelect_img" src="../../media/gameSelect/platform_gif.gif" id="doodle" alt="">
+        </div>
+
+        <div class="col-sm-12 col-lg-3 gSelect_img">
+            <img class="gSelect_img" src="../../media/gameSelect/snake_gif.gif" alt="">
+        </div>
+
+
+
     </div>
-   
+
     <script src="../../UI/bootstrap-5.0.2/dist/js/bootstrap.js"></script>
     <script src="switch.js"></script>
+    <script src="script.js"></script>
 </body>
-</html>
 
+</html>

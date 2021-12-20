@@ -162,8 +162,8 @@ function checkInput() {
     (nameInput.value !== null || nameInput.value !== "") &&
     (surNameInput.value !== null || surNameInput.value !== "") &&
     (nicknameInput.value !== null || nicknameInput.value !== "") &&
-    checkedCB.length != 0 &&
-    checkedCBCycles.length !== 0
+    checkedCB.length != 0 //&&
+    //checkedCBCycles.length !== 0
   ) {
     submitForm();
   }
