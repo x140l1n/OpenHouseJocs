@@ -3,6 +3,8 @@
 /***** VARIABLES OTHERS *****/
 $background-body-color: #E4ECEF
 $purple: #764A93
+$turquoise: #40E0D0
+
 /***** End VARIABLES OTHERS *****/
 
 /***** VARIABLES SIDEBAR *****/
@@ -29,8 +31,10 @@ body
     background-color: $background-body-color
 
 .container-wrapper
+    margin: 0px
     padding: 0px
-    padding-top: 66px
+    margin-top: 66px
+
 
 .logo-cep
     width: 50px
@@ -44,6 +48,17 @@ body
 
 .bg-purple
     background-color: $purple
+
+.bg-turquoise
+    background-color: $turquoise
+
+.table-340
+    height: 340px
+    
+.card-480
+    height: 480px
+    overflow-y: auto
+
 
 .login-background
     position: relative
@@ -124,15 +139,19 @@ body
 /*END SWITCH*/
 
 /***** INPUT *****/
-input.form-control
+input.form-control.form-control-border,
+select.form-select.form-control-border
     border: 2px solid $border-input-color
 
-.input-password
+input.form-control.form-control-border.input-password,
+input.form-control.form-control-border.input-password-confirm
+
     border-right: 0px !important
     border-top-right-radius: 0px
     border-bottom-right-radius: 0px
 
-#toggle-password
+.toggle-password
+
     border-top: 2px solid $border-input-color
     border-right: 2px solid $border-input-color
     border-bottom: 2px solid $border-input-color
@@ -145,8 +164,11 @@ input.form-control
 
 /***** SIDEBAR *****/
 aside
-    -webkit-box-flex: 0 0 300px
-    flex: 0 0 280px
+    position: fixed
+    width: 300px
+    z-index: 1
+    height: calc(100vh - 66px)
+
     background-color: $background-sidebar-color
 
     & > hr:not([size])
@@ -160,4 +182,13 @@ aside
         background-color: $background-link-active-color !important
         color: white !important
 
+main 
+    margin-left: 300px
+
+::-webkit-scrollbar 
+    width: 10px
+
+::-webkit-scrollbar-thumb 
+    background: grey
 /***** End SIDEBAR *****/
+

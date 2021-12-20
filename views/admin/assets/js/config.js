@@ -1,0 +1,1 @@
+const BASE_URL = "http://localhost/OpenHouseJocs/views/admin";
