@@ -28,45 +28,45 @@ function get_all_cycles()
     $cycles = [];
 
     try {
-            $db = new Database();
+        $db = new Database();
 
-            $statement = $db->connect()->prepare("SELECT c.id, c.name, c.id_family
+        $statement = $db->connect()->prepare("SELECT c.id, c.name, c.id_family
                                                   FROM cycle c");
 
-            $statement->execute();
+        $statement->execute();
 
-            $cycles = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $cycles = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-            Response::send(array("msg" => "Ok.", "data" => $cycles), Response::HTTP_OK);
-
+        Response::send(array("msg" => "Ok.", "data" => $cycles), Response::HTTP_OK);
     } catch (PDOException $e) {
         Response::send(array("msg" => "An unexpected error has occurred: " . $e->getMessage()), Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 }
 
-function get_all_family() {
+function get_all_family()
+{
     $family = [];
 
     try {
-            $db = new Database();
-            $statement = $db->connect()->prepare("SELECT f.id, f.name
+        $db = new Database();
+        $statement = $db->connect()->prepare("SELECT f.id, f.name
                                                   FROM family f");
-            $statement->execute();
-            $family = $statement->fetchAll(PDO::FETCH_ASSOC);
-            Response::send(array("msg" => "Ok.", "data" => $family), Response::HTTP_OK);
-
+        $statement->execute();
+        $family = $statement->fetchAll(PDO::FETCH_ASSOC);
+        Response::send(array("msg" => "Ok.", "data" => $family), Response::HTTP_OK);
     } catch (PDOException $e) {
         Response::send(array("msg" => "An unexpected error has occurred: " . $e->getMessage()), Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 }
 
 
-function get_all_users() {
+function get_all_users()
+{
     $users = [];
 
     try {
         $db = new Database();
-        $statement = $db->connect()->prepare("SELECT u.id, u.email, u.firstname, u.lastname, u.id_rol
+        $statement = $db->connect()->prepare("SELECT u.id,u.email, u.firstname, u.lastname, u.id_rol
                                                   FROM user u");
         $statement->execute();
         $users = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -86,22 +86,22 @@ function insert_user()
     $lastname = isset($_POST["lastname"]) ? $_POST["lastname"] : null;
     $nickname = isset($_POST["nickname"]) ? $_POST["nickname"] : null;
     $id_rol = isset($_POST["id_rol"]) ? $_POST["id_rol"] : -1;
-    
+
     try {
         if ($email !== null && $firstname !== null && $lastname !== null && $nickname !== null && $id_rol !== -1) {
             $db = new Database();
-            
-                //If user not exists.
-                $statement = $db->connect()->prepare("INSERT INTO user (email, firstname, lastname, nickname, id_rol) VALUES (:email, :firstname, :lastname, :nickname, :id_rol)");
 
-                $statement->bindParam(":email", $email);
-                $statement->bindParam(":firstname", $firstname);
-                $statement->bindParam(":lastname", $lastname);
-                $statement->bindParam(":nickname", $nickname);
-                $statement->bindParam(":id_rol", $id_rol);
+            //If user not exists.
+            $statement = $db->connect()->prepare("INSERT INTO user (email, firstname, lastname, nickname, id_rol) VALUES (:email, :firstname, :lastname, :nickname, :id_rol)");
 
-                $statement->execute();
-                $is_new_user = true;
+            $statement->bindParam(":email", $email);
+            $statement->bindParam(":firstname", $firstname);
+            $statement->bindParam(":lastname", $lastname);
+            $statement->bindParam(":nickname", $nickname);
+            $statement->bindParam(":id_rol", $id_rol);
+
+            $statement->execute();
+            $is_new_user = true;
 
             Response::send(array("msg" => "Ok.", "is_new_user" => $is_new_user), Response::HTTP_OK);
         } else {
@@ -112,7 +112,38 @@ function insert_user()
     }
 }
 
-function get(){
+function insert_formation()
+{
+    $added = true;
+    $email = isset($_POST["email"]) ? $_POST["email"] : null;
+    $id_family = isset($_POST["id_family"]) ? $_POST["id_family"] : -1;
+    try {
+        if ($email !== null && $id_family !== -1) {
+            $db = new Database();
+            $statement = $db->connect()->prepare(
+                "INSERT INTO user_family (id_user, id_family) 
+                                              VALUES (
+                                                  (SELECT u.id FROM user u WHERE u.email = :email), 
+                                                  :id_family
+                                                  )"
+            );
+            $statement->bindParam(":email", $email);
+            $statement->bindParam(":id_family", $id_family);
+
+            $statement->execute();
+
+            Response::send(array("msg" => "Ok.", "data" => $added), Response::HTTP_OK);
+        } else {
+            Response::send(array("msg" => "Miss params"), Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+        
+    } catch (PDOException $e) {
+        Response::send(array("msg" => "An unexpected error has occurred: " . $e->getMessage()), Response::HTTP_INTERNAL_SERVER_ERROR);
+    }
+}
+
+function get()
+{
     $ranking = [];
     $ranking_user = null;
 
@@ -177,7 +208,8 @@ function get(){
     }
 }
 
-function insert(){
+function insert()
+{
     $is_new_record = false;
     $id_game = isset($_POST["id_game"]) ? $_POST["id_game"] : -1;
     $id_user = isset($_POST["id_user"]) ? $_POST["id_user"] : -1;

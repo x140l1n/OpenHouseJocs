@@ -83,11 +83,9 @@ function get_cycles() {
     .then((response) => response.json())
     .then((data) => {
       cycles = data.data;
-      
     })
     .catch((error) => console.error(error));
 }
-
 
 /**
  * Submit form
@@ -104,12 +102,10 @@ function get_users() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.data);
       userInfo = data.data;
     })
     .catch((error) => console.error(error));
 }
-
 
 /**
  * Submit form
@@ -131,7 +127,25 @@ function insert_user_info(email, firstname, lastname, nickname) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.data)
+      console.log(data.data);
+    })
+    .catch((error) => console.error(error));
+}
+
+function insert_family(email, id_family) {
+  let data = new FormData();
+  data.append("action", "insert_formation");
+  data.append("email", email);
+  data.append("id_family", id_family);
+
+  fetch("./backend/index.php", {
+    method: "POST",
+    cache: "no-cache",
+    body: data,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
     })
     .catch((error) => console.error(error));
 }

@@ -21,6 +21,8 @@ let checkedCB = [];
 let checkedCBCycles = [];
 let userExist = true;
 
+let numCycles;
+
 //this will validate inputs and check if email pattern is correct
 function validateInput(inputId) {
   let found = false;
@@ -68,7 +70,7 @@ function validateInput(inputId) {
   }
 }
 
-//this will check and push checkbox selected value in array;
+//this will check and push checkbox selected value in array and create and populate ciclos dropdown;
 function reviewCheckBox() {
   let objKeys = Object.keys(family);
   let objValues = Object.values(family);
@@ -87,8 +89,8 @@ function reviewCheckBox() {
 function reviewCheckBoxCycle() {
   let objKeys = Object.keys(cycles);
   let objValues = Object.values(cycles);
-
-  for (let j = 0; j < objKeys.length; j++) {
+console.log(numCycles)
+  for (let j = 0; j < numCycles; j++) {
     if (document.getElementById(objValues[j].id).checked) {
       checkedCBCycles.push(objValues[j]);
       itChecked = true;
@@ -96,8 +98,9 @@ function reviewCheckBoxCycle() {
   }
 }
 
-// To  create dropdown and populate
+// To  create dropdown and populate for ciclos
 function myDropdown() {
+  numCycles = 0;
   let parent = document.getElementById("dropdownCicloButton");
   while (parent.firstChild) {
     parent.removeChild(parent.lastChild);
@@ -117,7 +120,7 @@ function myDropdown() {
         input.setAttribute("class", "m-2");
         input.setAttribute("id", objValues[j].id);
         input.setAttribute("name", objValues[j].name);
-        //input.setAttribute("onchange", "reviewCheckBoxCycle()");
+        input.setAttribute("onchange", "reviewCheckBoxCycle()");
 
         label.setAttribute("for", objValues[j].id);
         label.textContent = objValues[j].name;
@@ -127,12 +130,15 @@ function myDropdown() {
         parent.appendChild(list);
         list.appendChild(input);
         list.appendChild(label);
+
+        numCycles++;
+
       }
     }
   }
 }
 
-//this is when form is sent and will save user with it's information.
+//this is when form is sent and will save user with it's information and redirect to gameselect.
 function submitForm() {
   if (!userExist) {
     insert_user_info(
@@ -141,9 +147,15 @@ function submitForm() {
       surNameInput.value,
       nicknameInput.value
     );
+    for (let i = 0; i < checkedCB.length; i++) {
+      insert_family(email.value, checkedCB[i].id);
+    }
     window.location.href = "../gameSelect/gameSelect.php";
   } else if (userExist) {
-    window.location.href = "../gameSelect/gameSelect.php";
+   for (let i = 0; i < checkedCB.length; i++) {
+     insert_family(email.value, checkedCB[i].id);
+   }
+     window.location.href = "../gameSelect/gameSelect.php";
   } else {
     alert("ERROR");
   }
@@ -151,8 +163,6 @@ function submitForm() {
 
 //this will check if an input is empty or not
 function checkInput() {
-  console.log(checkedCB)
-  console.log(checkedCBCycles);
   if (userExist) {
     if ((email.value !== null || email.value !== "") && checkedCB.length != 0) {
       submitForm();
@@ -162,8 +172,8 @@ function checkInput() {
     (nameInput.value !== null || nameInput.value !== "") &&
     (surNameInput.value !== null || surNameInput.value !== "") &&
     (nicknameInput.value !== null || nicknameInput.value !== "") &&
-    checkedCB.length != 0 //&&
-    //checkedCBCycles.length !== 0
+    checkedCB.length != 0 &&
+    checkedCBCycles.length !== 0
   ) {
     submitForm();
   }
@@ -178,5 +188,4 @@ window.onload = function () {
   surNameDiv.style.display = "none";
   cicloDiv.style.display = "none";
   nicknameDiv.style.display = "none";
-  //document.getElementById("submitBtn").disabled = true;
 };
