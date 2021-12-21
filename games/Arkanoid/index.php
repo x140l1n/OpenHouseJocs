@@ -50,7 +50,7 @@
                             <button type="button" class="nes-btn is-warning ranking"
                                 data-action="ranking">Ranking</button>
                             <a href="../../views/gameSelect/gameSelect.php" class="nes-btn"
-                                data-action="ranking">Tornar al menú</a>
+                                data-action="back-menu">Tornar al menú</a>
                         </div>
                         <div id="menu-footer" class="menu-footer">
                             <p>

@@ -39,12 +39,16 @@ $select = "";
 $first_cycle = true;
 
 foreach ($all_cycles as  $cycle) {
-    if ($first_cycle && !isset($_POST["select-cycle"])) {
+    if ($first_cycle && !isset($_POST["select-cycle"]) && !isset($_SESSION["id_cycle"])) {
         $_SESSION["id_cycle"] = $cycle["id"];    
         $first_cycle = false;
     }
 
-    $select .= "<option value='" . $cycle["id"] . "'>" . $cycle["name"] . " (" . $cycle["family"] . ")" . "</option>";
+    if($cycle["id"] == $_SESSION["id_cycle"]) {
+        $select .= "<option value='" . $cycle["id"] . "' selected>" . $cycle["name"] . " (" . $cycle["family"] . ")" . "</option>";
+    } else {
+        $select .= "<option value='" . $cycle["id"] . "'>" . $cycle["name"] . " (" . $cycle["family"] . ")" . "</option>";
+    }
 }
 
 $stat = $db->connect()->prepare("SELECT nickname FROM user WHERE id = :id_user");
@@ -82,7 +86,7 @@ $snake_enabled = $stat->rowCount() > 0 ? 1 : 0;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selecciín de juegos</title>
+    <title>Selecció de jocs</title>
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="gameSelect.css">
     <link rel="shortcut icon" href="../../media/iconoPestanya.png" />
@@ -128,7 +132,7 @@ $snake_enabled = $stat->rowCount() > 0 ? 1 : 0;
         if ($snake_enabled === 1) {
         ?>
             <div class="col-sm-12 col-lg-3 gSelect_img">
-                <img class="gSelect_img" src="../../media/gameSelect/snake_gif.gif" alt="">
+                <a href="../../games/Snake-main/index.html"><img class="gSelect_img" src="../../media/gameSelect/snake_gif.gif" alt=""></a>
             </div>
         <?php } ?>
     </div>
