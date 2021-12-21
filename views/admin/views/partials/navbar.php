@@ -1,6 +1,6 @@
-<header class="navbar navbar-light fixed-top bg-secondary">
+<header id="navbar" class="navbar navbar-light fixed-top bg-secondary">
     <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="#">
+      <a class="navbar-brand d-flex align-items-center text-decoration-none" href="../../landingPage/index.php">
         <div class="d-inline-block d-flex flex-column logo-cep">
             <div class="bg-danger"></div>
             <div class="bg-warning"></div>

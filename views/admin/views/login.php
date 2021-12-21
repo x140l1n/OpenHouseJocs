@@ -35,10 +35,12 @@
                 <div class="d-flex flex-column flex-fill">
                     <div class="my-auto">
                         <div class="row col mb-4">
-                            <div class="d-flex justify-content-center">
-                                <img src="../../../media/admin/logo.png" class="logo me-2 my-auto" />
-                                <span class="fs-5 fw-bold title">Panel Administrador <br>OpenHouseJocs</span>
-                            </div>
+                            <a href="../../landingPage/index.php" class="text-decoration-none">
+                                <div class="d-flex justify-content-center">
+                                    <img src="../../../media/admin/logo.png" class="logo me-2 my-auto" />
+                                    <span class="fs-5 fw-bold title">Panel Administrador <br>OpenHouseJocs</span>
+                                </div>
+                            </a>
                             <small class="fw-bold text-center mt-5">Rellena todos los campos para acceder.</small>
                         </div>
                         <div class="row col">

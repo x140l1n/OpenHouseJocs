@@ -1,6 +1,9 @@
 <?php
-
 header('Content-Type: application/json; charset=utf-8');
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 //Import the librarys.
 require_once("response.php");
@@ -59,7 +62,6 @@ function get_all_family()
     }
 }
 
-
 function get_all_users()
 {
     $users = [];
@@ -75,8 +77,6 @@ function get_all_users()
         Response::send(array("msg" => "An unexpected error has occurred: " . $e->getMessage()), Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 }
-
-
 
 function insert_user()
 {
@@ -117,26 +117,68 @@ function insert_formation()
     $added = true;
     $email = isset($_POST["email"]) ? $_POST["email"] : null;
     $id_family = isset($_POST["id_family"]) ? $_POST["id_family"] : -1;
+
     try {
         if ($email !== null && $id_family !== -1) {
             $db = new Database();
-            $statement = $db->connect()->prepare(
-                "INSERT INTO user_family (id_user, id_family) 
-                                              VALUES (
-                                                  (SELECT u.id FROM user u WHERE u.email = :email), 
-                                                  :id_family
-                                                  )"
-            );
-            $statement->bindParam(":email", $email);
-            $statement->bindParam(":id_family", $id_family);
 
+            $statement = $db->connect()->prepare("SELECT u.id FROM user u WHERE u.email = :email");
+            $statement->bindParam(":email", $email);
             $statement->execute();
+
+            $id_user = $statement->fetchColumn();
+            
+            if ($id_user) {
+                $statement = $db->connect()->prepare(
+                    "INSERT INTO user_family (id_user, id_family) 
+                    VALUES (:id_user, :id_family)"
+                );
+
+                $statement->bindParam(":id_user", $id_user);
+                $statement->bindParam(":id_family", $id_family);
+    
+                $statement->execute();
+
+                $_SESSION["id_user"] = $id_user;
+            } else {
+                $added = false;
+            }
 
             Response::send(array("msg" => "Ok.", "data" => $added), Response::HTTP_OK);
         } else {
             Response::send(array("msg" => "Miss params"), Response::HTTP_UNPROCESSABLE_ENTITY);
         }
-        
+    } catch (PDOException $e) {
+        Response::send(array("msg" => "An unexpected error has occurred: " . $e->getMessage()), Response::HTTP_INTERNAL_SERVER_ERROR);
+    }
+}
+
+function delete_formation() {
+    $deleted = true;
+    $email = isset($_POST["email"]) ? $_POST["email"] : null;
+
+    try {
+        if ($email !== null) {
+            $db = new Database();
+
+            $statement = $db->connect()->prepare("SELECT u.id FROM user u WHERE u.email = :email");
+            $statement->bindParam(":email", $email);
+            $statement->execute();
+
+            $id_user = $statement->fetchColumn();
+            
+            if ($id_user) {
+                $statement = $db->connect()->prepare("DELETE FROM user_family WHERE id_user = :id_user");
+                $statement->bindParam(":id_user", $id_user);
+                $statement->execute();
+            } else {
+                $deleted = false;
+            }
+
+            Response::send(array("msg" => "Ok.", "data" => $deleted), Response::HTTP_OK);
+        } else {
+            Response::send(array("msg" => "Miss params"), Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
     } catch (PDOException $e) {
         Response::send(array("msg" => "An unexpected error has occurred: " . $e->getMessage()), Response::HTTP_INTERNAL_SERVER_ERROR);
     }

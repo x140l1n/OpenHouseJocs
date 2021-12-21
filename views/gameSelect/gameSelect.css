@@ -10776,4 +10776,13 @@ div.row {
   text-align: center;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+#dropdown-lang,
+#admin-icon {
+  display: none;
+}
+
 /*# sourceMappingURL=gameSelect.css.map */

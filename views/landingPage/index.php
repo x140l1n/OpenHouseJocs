@@ -1,3 +1,15 @@
+<?php 
+  //Start session for edit variables.
+  if (session_status() === PHP_SESSION_NONE) {
+      session_start();
+  }
+
+  //Remove all variables session.
+  session_unset();
+
+  //Destroy the current session.
+  session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="ca">
 

@@ -33,7 +33,7 @@ if ($_SESSION["id_rol"] != 1 && $_SESSION["id_rol"] != 2) {
         //Import the sidebar.
         require("partials/sidebar.php");
         ?>
-        <main class="d-flex flex-column w-100 h-100 p-4">
+        <main id="main" class="d-flex flex-column w-100 h-100 p-4">
             <div class="d-flex justify-content-between">
                 <span class="text-uppercase fw-bold fs-4">Dashboard</span>
                 <button class="btn btn-secondary text-uppercase" id="btn-refresh"><i class="fas fa-sync me-2 fa-fw"></i>Recargar</button>

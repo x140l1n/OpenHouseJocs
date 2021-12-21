@@ -16,24 +16,53 @@ function init(e) {
 
   let switchDarkMode = document.querySelector("#switchDarkMode");
   switchDarkMode.addEventListener("change", function (e) {
-    document.body.classList.toggle("dark-mode");
-    if(document.getElementById("navbar").className == "navbar navbar-expand-lg navbar-light bg-light sticky-top"){
+    if (!switchDarkMode.checked) {
+      localStorage.setItem("dark-mode", "1");
+      document.body.classList.remove("dark-mode");
+      document.body.classList.add("dark-mode");
       document.getElementById("navbar").className = "navbar navbar-expand-lg navbar-dark bg-dark sticky-top";
       document.getElementById("nav-dropdown").className = "dropdown-menu dropdown-menu-dark";
-      for(let carta of cards){
-        carta.classList.add("text-white","bg-secondary");
+      for (let carta of cards) {
+        carta.className = "card my-auto mx-auto text-white bg-dark";
       }
       document.getElementById("logo").src = "/OpenHouseJocs/media/landingPage/logoBlanc.png";
       document.getElementById("footer").className = "footer bg-dark text-center text-white";
     }
-    else{
+    else {
+      localStorage.setItem("dark-mode", "-1");
+      document.body.classList.remove("dark-mode");
       document.getElementById("navbar").className = "navbar navbar-expand-lg navbar-light bg-light sticky-top";
       document.getElementById("nav-dropdown").className = "dropdown-menu";
-      for(let carta of cards){
-        carta.className = "card my-auto";
+      for (let carta of cards) {
+        carta.className = "card my-auto mx-auto text-dark bg-light";
       }
       document.getElementById("logo").src = "/OpenHouseJocs/media/landingPage/logo.png";
       document.getElementById("footer").className = "footer bg-light text-center text-white";
     }
   });
+
+  let dark_mode = localStorage.getItem("dark-mode");
+
+  if (dark_mode == "1") {
+    switchDarkMode.checked = false;
+    document.body.classList.remove("dark-mode");
+    document.body.classList.add("dark-mode");
+    document.getElementById("navbar").className = "navbar navbar-expand-lg navbar-dark bg-dark sticky-top";
+    document.getElementById("nav-dropdown").className = "dropdown-menu dropdown-menu-dark";
+    for (let carta of cards) {
+      carta.className = "card my-auto mx-auto text-white bg-dark";
+    }
+    document.getElementById("logo").src = "/OpenHouseJocs/media/landingPage/logoBlanc.png";
+    document.getElementById("footer").className = "footer bg-dark text-center text-white";
+  } else {
+    switchDarkMode.checked = true;
+    document.body.classList.remove("dark-mode");
+    document.getElementById("navbar").className = "navbar navbar-expand-lg navbar-light bg-light sticky-top";
+    document.getElementById("nav-dropdown").className = "dropdown-menu";
+    for (let carta of cards) {
+      carta.className = "card my-auto mx-auto text-dark bg-light";
+    }
+    document.getElementById("logo").src = "/OpenHouseJocs/media/landingPage/logo.png";
+    document.getElementById("footer").className = "footer bg-light text-center text-white";
+  }
 }

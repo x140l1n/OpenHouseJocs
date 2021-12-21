@@ -111,7 +111,7 @@ function get_users() {
  * Submit form
  * @param {Element} table The table to insert records.
  */
-function insert_user_info(email, firstname, lastname, nickname) {
+function insert_user_info(email, firstname, lastname, nickname, callback) {
   let data = new FormData();
   data.append("action", "insert_user");
   data.append("email", email);
@@ -127,7 +127,7 @@ function insert_user_info(email, firstname, lastname, nickname) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.data);
+      callback();
     })
     .catch((error) => console.error(error));
 }
@@ -151,7 +151,30 @@ function insert_family(email, id_family) {
   })
     .then((response) => response.json())
     .then((data) => {
+
       console.log(data);
+    })
+    .catch((error) => console.error(error));
+}
+
+/**
+ * Delete formaciones with user id
+ * @param {Object} callback The callback when api response.
+ */
+
+function delete_family(email, callback) {
+  let data = new FormData();
+  data.append("action", "delete_formation");
+  data.append("email", email);
+
+  fetch("./backend/index.php", {
+    method: "POST",
+    cache: "no-cache",
+    body: data,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      callback();
     })
     .catch((error) => console.error(error));
 }

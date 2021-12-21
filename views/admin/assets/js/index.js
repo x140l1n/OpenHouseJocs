@@ -7,12 +7,38 @@ document.addEventListener("DOMContentLoaded", init);
 function init(e) {
     //Get the element target (document).
     let document = e.target;
-
     //Fire the event switch dark mode when clicked at the icon.
     let iconDarkMode = document.querySelector("#switchDarkMode + i");
     iconDarkMode.addEventListener("click", function (e) {
         document.querySelector("#switchDarkMode").click();
     });
+
+    let switchDarkMode = document.querySelector("#switchDarkMode");
+    switchDarkMode.addEventListener("change", function (e) {
+        if (!switchDarkMode.checked) {
+            localStorage.setItem("dark-mode", "1");
+            document.body.classList.remove("dark-mode");
+            document.body.classList.add("dark-mode");
+            document.getElementById("navbar").className = "navbar navbar-dark fixed-top bg-dark";
+        } else {
+            localStorage.setItem("dark-mode", "-1");
+            document.body.classList.remove("dark-mode");
+            document.getElementById("navbar").className = "navbar navbar-light fixed-top bg-secondary";
+        }
+    });
+    
+    let dark_mode = localStorage.getItem("dark-mode");
+    
+    if (dark_mode == "1") {
+        switchDarkMode.checked = false;
+        document.body.classList.remove("dark-mode");
+        document.body.classList.add("dark-mode");
+        document.getElementById("navbar").className = "navbar navbar-dark fixed-top bg-dark";
+    } else {
+        switchDarkMode.checked = true;
+        document.body.classList.remove("dark-mode");
+        document.getElementById("navbar").className = "navbar navbar-light fixed-top bg-secondary";
+    }
 
     let menuOptions = document.querySelector("#menu-options");
 

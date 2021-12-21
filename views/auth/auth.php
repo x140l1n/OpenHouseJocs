@@ -1,3 +1,15 @@
+<?php 
+    //Start session for edit variables.
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    //Remove all variables session.
+    session_unset();
+
+    //Destroy the current session.
+    session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="cat">
 
@@ -7,6 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="auth.css">
+    <link rel="shortcut icon" href="../../media/iconoPestanya.png" />
     <title>Login game</title>
 </head>
 

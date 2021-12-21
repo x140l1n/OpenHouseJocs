@@ -89,7 +89,7 @@ function reviewCheckBox() {
 function reviewCheckBoxCycle() {
   let objKeys = Object.keys(cycles);
   let objValues = Object.values(cycles);
-console.log(numCycles)
+
   for (let j = 0; j < numCycles; j++) {
     if (document.getElementById(objValues[j].id).checked) {
       checkedCBCycles.push(objValues[j]);
@@ -145,17 +145,25 @@ function submitForm() {
       email.value,
       nameInput.value,
       surNameInput.value,
-      nicknameInput.value
+      nicknameInput.value,
+      () => {
+        delete_family(email.value, () => {
+          for (let i = 0; i < checkedCB.length; i++) {
+            insert_family(email.value, checkedCB[i].id);
+          }
+
+          window.location.href = "../gameSelect/gameSelect.php";
+        });
+      }
     );
-    for (let i = 0; i < checkedCB.length; i++) {
-      insert_family(email.value, checkedCB[i].id);
-    }
-    window.location.href = "../gameSelect/gameSelect.php";
   } else if (userExist) {
-   for (let i = 0; i < checkedCB.length; i++) {
-     insert_family(email.value, checkedCB[i].id);
-   }
-     window.location.href = "../gameSelect/gameSelect.php";
+    delete_family(email.value, () => {
+      for (let i = 0; i < checkedCB.length; i++) {
+        insert_family(email.value, checkedCB[i].id);
+      }
+
+      window.location.href = "../gameSelect/gameSelect.php";
+    });
   } else {
     alert("ERROR");
   }

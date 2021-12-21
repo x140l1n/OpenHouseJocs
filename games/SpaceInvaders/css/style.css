@@ -1,0 +1,415 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bolder;
+}
+html {
+  background-color: black;
+}
+
+body {
+  overflow: hidden;
+}
+
+td{
+  text-align: left;
+
+}
+
+#descripcioCicle{
+  color: white;
+}
+
+.juego {
+  transform: scale(0.8);
+  position: absolute;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -50px;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.menu {
+  transform: scale(0.8);
+  position: absolute;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -15px;
+  flex-direction: column;
+}
+
+.rankingMenu {
+  transform: scale(0.8);
+  position: absolute;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -15px;
+  flex-direction: column;
+}
+
+.hasGuanyat {
+  transform: scale(0.8);
+  position: absolute;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -15px;
+  flex-direction: column;
+}
+
+.gameOver {
+  transform: scale(0.8);
+  position: absolute;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -15px;
+  flex-direction: column;
+}
+
+.controles {
+  transform: scale(0.8);
+  position: absolute;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -15px;
+  flex-direction: column;
+}
+
+.imatgeControls {
+  margin: 50px;
+  border: 10px dashed white;
+  box-sizing: border-box;
+}
+
+.rankingList {
+  height: 100%;
+  margin: 50px;
+  border: 10px dashed white;
+  box-sizing: border-box;
+}
+
+.grid {
+  width: 690px;
+  height: 690px;
+  border: 30px solid transparent;
+  border-image: url(../img/border.png) 20% round;
+  display: flex;
+  flex-wrap: wrap;
+  background-image: url(../img/fonsJoc.png);
+}
+.gridMenu {
+  width: 690px;
+  height: 690px;
+  border: 30px solid transparent;
+  border-image: url(../img/border.png) 20% round;
+  display: flex;
+  flex-direction: column;
+  background-image: url(../img/fonsJoc.png);
+}
+
+.grid div {
+  box-sizing: border-box;
+  width: 46px;
+  height: 46px;
+}
+
+.alien {
+  background-image: url(../img/alienNormal.png);
+  background-size: cover;
+}
+
+.alienEspecial {
+  background-image: url(../img/alienEspecial.png) !important;
+  background-size: cover;
+}
+
+.nave {
+  background-image: url(../img/nave.png);
+  background-size: cover;
+}
+
+.laser {
+  background-image: url(../img/laser.png);
+  background-size: cover;
+}
+
+.boom {
+  background-image: url(../img/explosion.gif);
+  background-size: cover;
+}
+
+.title-custom {
+  color: white !important;
+}
+
+.laserAlien {
+  background-image: url(../img/alienLaser.png);
+  background-size: cover;
+}
+
+.menuButtons {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titolMenu {
+  text-align: center;
+}
+
+.titolGuanyat {
+  margin: auto;
+}
+
+.titolPerdut {
+  margin: auto;
+}
+
+.puntuacioGuanyat{
+  font-size: 50px;
+}
+
+.puntuacioPerdut{
+  font-size: 50px;
+}
+
+#resultados {
+  color: white;
+}
+
+.botoJugar {
+  padding: 0.9em 2em;
+  border: 2px solid #00eef7;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 23px;
+  color: #ddd;
+  transition: 0.3s;
+  z-index: 1;
+  font-family: inherit;
+  color: rgb(40, 207, 191);
+  margin-bottom: 5px;
+  height: 70px;
+  width: 400px;}
+
+.botoJugar::before {
+  content: "";
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: rgb(40, 207, 191);
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+  height: 500px;
+}
+
+.botoJugar:hover::before {
+  width: 105%;
+}
+
+.botoJugar:hover {
+  color: #111;
+}
+
+.botoJugar1 {
+  padding: 0.9em 2em;
+  border: 2px solid #17c3b2;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 23px;
+  color: #ddd;
+  transition: 0.3s;
+  z-index: 1;
+  font-family: inherit;
+  color: #17c3b2;
+  margin-bottom: 5px;
+  height: 70px;
+  width: 400px;}
+
+.botoJugar1::before {
+  content: "";
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #17c3b2;
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+  height: 500px;
+}
+
+.botoJugar1:hover::before {
+  width: 105%;
+}
+
+.botoJugar1:hover {
+  color: #111;
+}
+
+.botoJugar2 {
+  padding: 0.9em 2em;
+  border: 2px solid #ff00dd;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 23px;
+  color: #ddd;
+  transition: 0.3s;
+  z-index: 1;
+  font-family: inherit;
+  color: #ec09ce;
+  margin-bottom: 5px;
+  height: 70px;
+  width: 400px;}
+
+.botoJugar2::before {
+  content: "";
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #ec09ce;
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+  height: 500px;
+}
+
+.botoJugar2:hover::before {
+  width: 105%;
+}
+
+.botoJugar2:hover {
+  color: #111;
+}
+
+.botoJugar3 {
+  padding: 0.9em 2em;
+  border: 2px solid #fffb00;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 23px;
+  color: #ddd;
+  transition: 0.3s;
+  z-index: 1;
+  font-family: inherit;
+  color: #d3d00c;
+  margin-bottom: 5px;
+  height: 70px;
+  width: 400px;}
+
+.botoJugar3::before {
+  content: "";
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #d3d00c;
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+  height: 500px;
+}
+
+.botoJugar3:hover::before {
+  width: 105%;
+}
+
+.botoJugar3:hover {
+  color: #111;
+}
+
+.botoJugar4 {
+  padding: 0.9em 2em;
+  border: 2px solid #ffffff;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 23px;
+  color: #ddd;
+  transition: 0.3s;
+  z-index: 1;
+  font-family: inherit;
+  color: rgb(230, 228, 228);
+  margin-bottom: 5px;
+  height: 70px;
+  width: 400px;
+}
+
+.botoJugar4::before {
+  content: "";
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: rgb(230, 228, 228);
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+  height: 500px;
+}
+
+.botoJugar4:hover::before {
+  width: 105%;
+}
+
+.botoJugar4:hover {
+  color: #111;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+/*Configuracion titulo menu HOME de Space Invaders*/
+h1 {
+  font-size: 100px;
+  color: white;
+  margin: 30px;
+}
+
+h3{
+  color: white;
+  font-size: 30px;
+}
+
+.z-text {
+  transform: rotateX(-15deg);
+  transition: transform 1s;
+}
+
+.z-layer:not(:first-child) {
+  color: blue;
+}

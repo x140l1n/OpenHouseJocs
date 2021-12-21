@@ -37,7 +37,7 @@ class User
 
                     Response::send(array("msg" => "Login correct.", "data" => $result), Response::HTTP_OK);
                 } else {
-                    Response::send(array("msg" => "Login failed."), Response::HTTP_UNAUTHORIZED, "Login failed ($email, $password).");
+                    Response::send(array("msg" => "Login failed."), Response::HTTP_UNAUTHORIZED);
                 }
             } catch (PDOException $e) {
                 Response::send(array("msg" => "Error ocurred: " . $e->getMessage()), Response::HTTP_INTERNAL_SERVER_ERROR, "Error ocurred: " . $e->getMessage());
