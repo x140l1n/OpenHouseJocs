@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>SNAKE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="snakegame.js" defer type="module"></script>
+</head>
+<body>
+    <div id="score" style="display: none;">
+        <p>SCORE:   <p id="points"></p></p>
+    </div>
+    <div id="board" style="display: none;"></div>
+
+    <div id="menu" class="menu">
+        <div class="buttons">
+            <button id="play">JUGAR</button>
+            <button id="rank">RÀNKING</button>
+            <button id="instr">INSTRUCCIONS</button>
+        </div>
+    </div>
+
+    <div id="ranking" class="menu ranking" style="display: none;">
+        <h1>RANKING</h1>
+        <div class='rank'></div>
+        <button id="tornar1" class="tornar">TORNAR</button>
+    </div>
+    <div id="instructions" class="menu instructions" style="display: none;">
+        <h1>INSTRUCCIONS</h1>
+        <div>
+            <p>El clàssic joc de SNAKE ha tornat en una nova versió</p>
+            <p>Util·litza les tecles per moure't pel tauler i agafar els punts</p>
+        </div>
+        <img src="./media/instructions.png" width="150px" height="150px" alt="teclas">
+        <button id="tornar2" class="tornar">TORNAR</button>
+    </div>
+
+</body>
+</html>
