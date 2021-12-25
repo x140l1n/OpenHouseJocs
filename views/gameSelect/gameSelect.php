@@ -105,7 +105,7 @@ $snake_enabled = $stat->rowCount() > 0 ? 1 : 0;
         <h2>Benvingut/da, <?php echo $nickname; ?></h2>
         <p>Selecciona un cicle</p>
         <form action="gameSelect.php" method="POST">
-            <select name="select-cycle" onchange="this.form.submit()">
+            <select class="form-control" name="select-cycle" onchange="this.form.submit()">
                 <?php echo $select; ?>
             </select>
         </form>
