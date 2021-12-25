@@ -1,0 +1,36 @@
+.navbar {
+  background-color: #d6d6d6 !important;
+  overflow: visible;
+}
+
+.bg-light {
+  background-color: black;
+}
+
+.form-check-input:checked .navbar {
+  background-color: black !important;
+}
+
+.collapse {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.show .navbar-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: inherit;
+      -ms-flex-positive: inherit;
+          flex-grow: inherit;
+}
+
+.show .adminIcon::after {
+  content: "Administrador";
+}
+/*# sourceMappingURL=navbar.css.map */
