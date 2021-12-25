@@ -19,25 +19,25 @@ function init(e) {
             localStorage.setItem("dark-mode", "1");
             document.body.classList.remove("dark-mode");
             document.body.classList.add("dark-mode");
-            document.getElementById("navbar").className = "navbar navbar-dark fixed-top bg-dark";
+            if (document.getElementById("navbar")) document.getElementById("navbar").className = "navbar navbar-dark fixed-top bg-dark";
         } else {
             localStorage.setItem("dark-mode", "-1");
             document.body.classList.remove("dark-mode");
-            document.getElementById("navbar").className = "navbar navbar-light fixed-top bg-secondary";
+            if (document.getElementById("navbar")) document.getElementById("navbar").className = "navbar navbar-light fixed-top bg-secondary";
         }
     });
-    
+
     let dark_mode = localStorage.getItem("dark-mode");
-    
+
     if (dark_mode == "1") {
         switchDarkMode.checked = false;
         document.body.classList.remove("dark-mode");
         document.body.classList.add("dark-mode");
-        document.getElementById("navbar").className = "navbar navbar-dark fixed-top bg-dark";
+        if (document.getElementById("navbar")) document.getElementById("navbar").className = "navbar navbar-dark fixed-top bg-dark";
     } else {
         switchDarkMode.checked = true;
         document.body.classList.remove("dark-mode");
-        document.getElementById("navbar").className = "navbar navbar-light fixed-top bg-secondary";
+        if (document.getElementById("navbar")) document.getElementById("navbar").className = "navbar navbar-light fixed-top bg-secondary";
     }
 
     let menuOptions = document.querySelector("#menu-options");

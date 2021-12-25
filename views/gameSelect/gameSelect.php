@@ -40,11 +40,11 @@ $first_cycle = true;
 
 foreach ($all_cycles as  $cycle) {
     if ($first_cycle && !isset($_POST["select-cycle"]) && !isset($_SESSION["id_cycle"])) {
-        $_SESSION["id_cycle"] = $cycle["id"];    
+        $_SESSION["id_cycle"] = $cycle["id"];
         $first_cycle = false;
     }
 
-    if($cycle["id"] == $_SESSION["id_cycle"]) {
+    if ($cycle["id"] == $_SESSION["id_cycle"]) {
         $select .= "<option value='" . $cycle["id"] . "' selected>" . $cycle["name"] . " (" . $cycle["family"] . ")" . "</option>";
     } else {
         $select .= "<option value='" . $cycle["id"] . "'>" . $cycle["name"] . " (" . $cycle["family"] . ")" . "</option>";

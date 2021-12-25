@@ -44,7 +44,7 @@
                             <small class="fw-bold text-center mt-5">Rellena todos los campos para acceder.</small>
                         </div>
                         <div class="row col">
-                            <form name="form-login">
+                            <form name="form-login" class="text-dark">
                                 <div class="form-floating mb-3">
                                     <input type="input-email" class="form-control form-control-border" id="input-email" name="email" placeholder="Email" error-label="#email-error" required>
                                     <label for="input-email">Email</label>
