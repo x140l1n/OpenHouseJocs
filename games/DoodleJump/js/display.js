@@ -147,7 +147,7 @@ function displayFinalScreen() {
   let home = document.createElement("button");
   let playAgain = document.createElement("button");
 
-  home.innerHTML = "tornar";
+  home.innerHTML = "Tornar";
   home.className = "home";
   home.style.animation = "appear 0.4s";
   home.addEventListener("click", homePage);
