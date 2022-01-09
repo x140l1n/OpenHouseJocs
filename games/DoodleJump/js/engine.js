@@ -181,7 +181,7 @@ function addScore() {
   ) {
     score++;
     countScore(score);
-    changeVelocity(score);
+    //changeVelocity(score);
   }
 }
 

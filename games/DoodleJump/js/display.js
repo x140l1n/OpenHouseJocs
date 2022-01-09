@@ -145,11 +145,17 @@ function displayFinalScreen() {
   GRID.style.fontSize = "50px";
 
   let home = document.createElement("button");
+  let playAgain = document.createElement("button");
 
   home.innerHTML = "tornar";
   home.className = "home";
   home.style.animation = "appear 0.4s";
   home.addEventListener("click", homePage);
+
+  playAgain.innerHTML = "Tornar a jugar";
+  playAgain.className = "again";
+  playAgain.style.animation = "appear 0.4s";
+  playAgain.addEventListener("click", start);
 
   //displaying all all ciclos
   let contText = document.createElement("div");
@@ -188,6 +194,7 @@ function displayFinalScreen() {
 
   GRID.appendChild(contText);
   GRID.appendChild(home);
+  GRID.appendChild(playAgain);
 }
 
 /////////////////////////////
@@ -287,6 +294,7 @@ function displayInstruccions() {
     allowOutsideClick: false,
     title: "Instrucció",
     html:
+      "<div class= 'left'> <span style='padding-top: 10px'> PREMEU EL SPACEBAR PER COMENÇAR A SALTAR!!! </span> </div> " +
       "<div class= 'left'> <img src='images/left.png' alt='left arrow' height='42' width='42'> <span style='padding-top: 10px'> per moure a l'esquerra </span> </div> " +
       "<div class= 'left'> <img src='images/right.png' alt='left arrow' height='42' width='42'> <span style='padding-top: 10px'> per moure a la dreta </span> </div> " +
       "<div class= 'left'> <span style='padding-top: 10px'> * text : +2pts </span> </div> " +

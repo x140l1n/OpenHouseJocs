@@ -7,8 +7,8 @@ body {
   font-family: "Waiting for the Sunrise", cursive;
   margin: 10px 50px;
   font-weight: bold;
-  /* transform: scale(0.7); */
-  min-height: 100%;
+  /* transform: scale(0.7);
+  min-height: 100%; */
     overflow: hidden;
     font-size: 30px;
 }
@@ -31,6 +31,7 @@ body {
   padding: 1rem 0 1rem 0;
   justify-content: space-between;
   display: flex;
+  transform: scale(0.8);
 }
 
 td {
@@ -193,6 +194,26 @@ button:nth-child(4) {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.again {
+  position: absolute;
+  float: right;
+  right: 10px;
+  top: 10px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #f6e7d1;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  color: #422800;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  text-align: center;
+  -webkit-box-shadow: 9px 6px 20px -4px rgba(0, 0, 0, 0.68);
+  box-shadow: 9px 6px 20px -4px rgba(0, 0, 0, 0.68);
 }
 
 .home {
