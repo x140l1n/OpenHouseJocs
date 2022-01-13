@@ -85,6 +85,11 @@ function control(e) {
   } else if (e.key === "ArrowRight") {
     //move right
     moveRight();
+  } else if (e.key === " " || e.key === "Spacebar") {
+    platformTimerId = setInterval(movePlatforms, velocityPlatform); //every 25/1000
+    jump();
+    countScore(score);
+    startCountTime();
   } /* else if (e.key === "ArrowUp") {
     //move sraight up
     moveStraight();
@@ -121,8 +126,8 @@ function stopControl(e) {
     //move right
     isGoingRight = false;
     clearInterval(rightTimerId);
-  } else if (e.key === "ArrowUp") {
+  } /* else if (e.key === "ArrowUp") {
     //move sraight up
     moveStraight();
-  }
+  } */ 
 }

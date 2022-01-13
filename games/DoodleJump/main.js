@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     confirmButtonText: "Perfecte!",
   }).then((result) => {
     if (result.isConfirmed) {
-      homePage();
+      displayInstruccions();
     }
   });
 });
@@ -86,6 +86,8 @@ function gameOver() {
   function start() {
     while (GRID.firstChild) {
       GRID.removeChild(GRID.firstChild);
+
+      isGameOver = false;
     }
     if (!isGameOver) {
       minute = 2;
@@ -95,10 +97,10 @@ function gameOver() {
       createPlatfoms();
       createDoodler();
 
-      platformTimerId = setInterval(movePlatforms, velocityPlatform); //every 25/1000
+      /* platformTimerId = setInterval(movePlatforms, velocityPlatform); //every 25/1000
       jump();
       countScore(score);
-      startCountTime();
+      startCountTime(); */
       document.addEventListener("keydown", control);
       document.addEventListener("keyup", stopControl);
     }
