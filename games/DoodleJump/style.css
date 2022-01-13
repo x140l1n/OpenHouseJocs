@@ -9,8 +9,8 @@ body {
   font-weight: bold;
   /* transform: scale(0.7);
   min-height: 100%; */
-    overflow: hidden;
-    font-size: 30px;
+  overflow: hidden;
+  font-size: 30px;
 }
 
 .swal2-container {
@@ -31,7 +31,7 @@ body {
   padding: 1rem 0 1rem 0;
   justify-content: space-between;
   display: flex;
-  transform: scale(0.8);
+  /* transform: scale(1.5); */
 }
 
 td {
@@ -160,8 +160,8 @@ table {
 }
 
 .buttons:hover {
-    background-color: #7ca143;
-    color: ghostwhite;
+  background-color: #7ca143;
+  color: ghostwhite;
 }
 
 button:nth-child(1) {

@@ -1,14 +1,14 @@
-<?php 
-  //Start session for edit variables.
-  if (session_status() === PHP_SESSION_NONE) {
-      session_start();
-  }
+<?php
+//Start session for edit variables.
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
 
-  //Remove all variables session.
-  session_unset();
+//Remove all variables session.
+session_unset();
 
-  //Destroy the current session.
-  session_destroy();
+//Destroy the current session.
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -63,7 +63,7 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
       <div class="col d-flex align-items-stretch">
         <div class="card">
-          <a href="https://politecnics.barcelona/el-centre/">
+          <a href="https://politecnics.barcelona/el-centre/" target="__blank">
             <img src="../../media/landingPage/quiSom.png" class="card-img-top" alt="Representació de l'apartat Qui som.">
             <div class="card-body">
               <h5 class="card-title" id="cttl1">Qui som?</h5>
@@ -74,7 +74,7 @@
       </div>
       <div class="col d-flex align-items-stretch">
         <div class="card">
-          <a href="https://politecnics.barcelona/el-centre/projecte-educatiu-de-centre/">
+          <a href="https://politecnics.barcelona/el-centre/projecte-educatiu-de-centre/" target="__blank">
             <img src="../../media/landingPage/frase.png" class="card-img-top" alt="Representació de la metodologia del centre FRASE.">
             <div class="card-body">
               <h5 class="card-title" id="cttl2">Projecte educatiu del centre</h5>
@@ -85,7 +85,7 @@
       </div>
       <div class="col d-flex align-items-stretch">
         <div class="card">
-          <a href="https://politecnics.barcelona/el-centre/qualitat-al-politecnics/">
+          <a href="https://politecnics.barcelona/el-centre/qualitat-al-politecnics/" target="__blank">
             <img src="../../media/landingPage/innovacio.png" class="card-img-top" alt="Innovació.">
             <div class="card-body">
               <h5 class="card-title" id="cttl3">Qualitat al politècnics</h5>
